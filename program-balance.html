@@ -60,7 +60,7 @@
   .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
   .lang-option.active{color:var(--white);font-weight:800}
   /* HERO DETAIL */
-  .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px}
+  .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px;max-width:1200px;margin:0 auto}
   .detail-hero-img{border-radius:50%;width:280px;height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:80px;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3)}
   .detail-hero-badge{display:inline-block;background:var(--gold);color:var(--green-dark);font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
   .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
@@ -69,11 +69,11 @@
   .btn-order:hover{background:var(--gold-light);transform:translateY(-2px)}
 
   /* QUOTE */
-  .quote-section{background:transparent;padding:32px 40px;text-align:center;border-bottom:1px solid #eee}
+  .quote-section{background:transparent;padding:32px 40px;text-align:center;border-bottom:1px solid #eee;max-width:1200px;margin:0 auto}
   .quote-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--text-mid);font-style:italic}
 
   /* BENEFITS */
-  .benefits-detail{background:transparent;padding:60px 60px}
+  .benefits-detail{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .benefits-detail h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
   .benefits-detail .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:40px}
   .benefits-inner{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
@@ -85,7 +85,7 @@
   .benefit-side-img{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#c8e0c8,#7aab7a);height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
 
   /* GALLERY */
-  .gallery-section{background:transparent;padding:60px 60px}
+  .gallery-section{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .gallery-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:6px;text-align:center}
   .gallery-section .subtitle{text-align:center;color:rgba(255,255,255,.7);font-size:14px;margin-bottom:36px}
   .gallery-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;grid-template-rows:200px 200px;gap:12px;max-width:900px;margin:0 auto}
@@ -94,7 +94,7 @@
   .gallery-item.tall{grid-row:span 2}
 
   /* REVIEWS */
-  .reviews-section{background:transparent;padding:60px 60px}
+  .reviews-section{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
   .reviews-section .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:36px}
   .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
@@ -107,7 +107,7 @@
   .review-sub{font-size:11px;color:var(--text-light)}
 
   /* OTHER PROGRAMS */
-  .other-section{background:transparent;padding:60px 60px}
+  .other-section{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .other-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);margin-bottom:28px;text-align:center}
   .other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto}
   .other-card{background:var(--off-white);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block}
@@ -240,6 +240,15 @@
   .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
   .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
   .lang-option.active{color:var(--green-dark);background:var(--gold)}
+
+  /* SECTION CONTAINERS — same as index.html */
+  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:1200px;width:calc(100% - 48px)}
+  .sc:first-of-type{margin-top:32px}
+  .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+  .sc-green{background:#3a5c38}
+  .sc-offwhite{background:var(--off-white);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  .sc-dark{background:var(--green-dark);box-shadow:0 4px 24px rgba(0,0,0,.14)}
+  @media(max-width:900px){.sc{width:calc(100% - 24px)}}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
   <style>
@@ -280,9 +289,9 @@
 <div class="sc sc-dark"><section class="detail-hero">
   <div class="detail-hero-img">🍱</div>
   <div>
-    <div class="detail-hero-badge">Минимум 2 дн.</div>
+    <div class="detail-hero-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
     <h1 class="detail-hero-title">Balance Daily</h1>
-    <p class="detail-hero-desc">Balance Daily идеально подходит для поддержания веса и полноценного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение, стабилизирует колебания сахара и улучшает общее самочувствие. Подходит для активных женщин и занятых людей, которые хотят питаться правильно без дополнительных усилий.</p>
+    <p class="detail-hero-desc" data-i18n="balance_hero_desc">Balance Daily идеально подходит для поддержания веса и полноценного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение, стабилизирует колебания сахара и улучшает общее самочувствие. Подходит для активных женщин и занятых людей, которые хотят питаться правильно без дополнительных усилий.</p>
     <a class="btn-order" href="#" onclick="openOrderModal('Balance Daily');return false;" data-i18n="btn_order">Заказать программу</a>
   </div>
 </section>
@@ -290,35 +299,35 @@
 <div class="sc sc-white">
 <!-- QUOTE -->
 <div class="quote-section">
-  <p class="quote-text">«Правильное питание — это не диета, это образ жизни»</p>
+  <p class="quote-text" data-i18n="balance_quote">«Правильное питание — это не диета, это образ жизни»</p>
 </div></div>
 
 <div class="sc sc-offwhite">
 <!-- BENEFITS -->
 <section class="benefits-detail">
-  <h2>Преимущества программы</h2>
-  <p class="subtitle">Balance Daily — для тех, кто хочет питаться правильно каждый день.</p>
+  <h2 data-i18n="benefits_title">Преимущества программы</h2>
+  <p class="subtitle" data-i18n="balance_ben_sub">Balance Daily — для тех, кто хочет питаться правильно каждый день.</p>
   <div class="benefits-inner">
     <div class="benefit-list">
       <div class="benefit-item">
         <div class="benefit-icon">🌿</div>
         <div>
-          <h4>Снижение воспаления</h4>
-          <p>Эта программа помогает организму избавиться от внутренних источников воспаления. Ингредиенты чистые и легко усваиваемые телом. Выбранные антиоксиданты способствуют улучшению пищеварительной системы, уменьшают вздутие, чувство жжения и сохраняют ткани. Через несколько дней организм отмечает более стабильной энергией и общим улучшением состояния.</p>
+          <h4 data-i18n="reset_ben1_title">Снижение воспаления</h4>
+          <p data-i18n="reset_ben1_desc">Эта программа помогает организму избавиться от внутренних источников воспаления. Ингредиенты чистые и легко усваиваемые телом. Выбранные антиоксиданты способствуют улучшению пищеварительной системы, уменьшают вздутие, чувство жжения и сохраняют ткани. Через несколько дней организм отмечает более стабильной энергией и общим улучшением состояния.</p>
         </div>
       </div>
       <div class="benefit-item">
         <div class="benefit-icon">⚖️</div>
         <div>
-          <h4>Более лёгкое и стабильное пищеварение</h4>
-          <p>Блюда разработаны так, чтобы поддерживать пищеварительный тракт без перегрузки. Клетчатка, гибкие текстуры и правильные сочетания позволяют организму эффективно усваивать питательные вещества. Результат — более стабильное и регулярное пищеварение и заметное уменьшение вздутия.</p>
+          <h4 data-i18n="reset_ben2_title">Более лёгкое и стабильное пищеварение</h4>
+          <p data-i18n="reset_ben2_desc">Блюда разработаны так, чтобы поддерживать пищеварительный тракт без перегрузки. Клетчатка, гибкие текстуры и правильные сочетания позволяют организму эффективно усваивать питательные вещества. Результат — более стабильное и регулярное пищеварение и заметное уменьшение вздутия.</p>
         </div>
       </div>
       <div class="benefit-item">
         <div class="benefit-icon">✨</div>
         <div>
-          <h4>Более чистая кожа и улучшение тонуса</h4>
-          <p>Благодаря уменьшению токсинов и внутренних воспалений кожа со временем становится более чистой и сияющей. Организм приоритизирует лучший тонус, а сокращение жидкости уменьшает задержку жидкости. Это исключительно следствие чистого и правильно сбалансированного питания.</p>
+          <h4 data-i18n="reset_ben3_title">Более чистая кожа и улучшение тонуса</h4>
+          <p data-i18n="reset_ben3_desc">Благодаря уменьшению токсинов и внутренних воспалений кожа со временем становится более чистой и сияющей. Организм приоритизирует лучший тонус, а сокращение жидкости уменьшает задержку жидкости. Это исключительно следствие чистого и правильно сбалансированного питания.</p>
         </div>
       </div>
     </div>
@@ -329,7 +338,7 @@
 <div class="sc sc-dark">
 <!-- GALLERY -->
 <section class="gallery-section">
-  <h2>Галерея</h2>
+  <h2 data-i18n="gallery_title">Галерея</h2>
   <p class="subtitle">Откройте для себя кадры, созданные с теплом, которые рассказывают нашу историю без слов.</p>
   <div class="gallery-grid">
     <div class="gallery-item">🥗</div>
@@ -343,23 +352,23 @@
 <div class="sc sc-offwhite">
 <!-- REVIEWS -->
 <section class="reviews-section">
-  <h2>Отзывы</h2>
-  <p class="subtitle">Узнай, как наши программы помогли людям изменить свой образ жизни.</p>
+  <h2 data-i18n="reviews_title">Отзывы</h2>
+  <p class="subtitle" data-i18n="reviews_sub">Узнай, как наши программы помогли людям изменить свой образ жизни.</p>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">Наконец-то нашла программу, которая подходит для обычной жизни. Не нужно ничего считать — всё уже сбалансировано. Чувствую себя прекрасно!</p>
+      <p class="review-text" data-i18n="balance_rev1_text">Наконец-то нашла программу, которая подходит для обычной жизни. Не нужно ничего считать — всё уже сбалансировано. Чувствую себя прекрасно!</p>
       <div class="review-author">
         <div class="review-avatar">👤</div>
-        <div><div class="review-name">Светлана Р.</div><div class="review-sub">Balance Daily, 2 недели</div></div>
+        <div><div class="review-name" data-i18n="balance_rev1_name">Светлана Р.</div><div class="review-sub" data-i18n="balance_rev1_sub">Balance Daily, 2 недели</div></div>
       </div>
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">Придерживаюсь Balance Daily уже месяц. Вес стабилен, энергии стало больше, а тяга к сладкому практически исчезла. Рекомендую всем!</p>
+      <p class="review-text" data-i18n="balance_rev2_text">Придерживаюсь Balance Daily уже месяц. Вес стабилен, энергии стало больше, а тяга к сладкому практически исчезла. Рекомендую всем!</p>
       <div class="review-author">
         <div class="review-avatar">👤</div>
-        <div><div class="review-name">Алексей М.</div><div class="review-sub">Balance Daily, 1 месяц</div></div>
+        <div><div class="review-name" data-i18n="balance_rev2_name">Алексей М.</div><div class="review-sub" data-i18n="balance_rev2_sub">Balance Daily, 1 месяц</div></div>
       </div>
     </div>
   </div>
@@ -368,23 +377,23 @@
 <div class="sc sc-white">
 <!-- OTHER PROGRAMS -->
 <section class="other-section">
-  <h2>Другие программы</h2>
+  <h2 data-i18n="other_programs_title">Другие программы</h2>
   <div class="other-grid">
     <a class="other-card" href="program-reset.html">
       <div class="other-card-img">🥦</div>
-      <div class="other-card-body"><div class="other-card-name">Reset & Detox</div><div class="other-card-price">от 350 леев/день</div></div>
+      <div class="other-card-body"><div class="other-card-name">Reset & Detox</div><div class="other-card-price" data-i18n="other_reset_price">от 350 леев/день</div></div>
     </a>
     <a class="other-card" href="program-slim.html">
       <div class="other-card-img">🥗</div>
-      <div class="other-card-body"><div class="other-card-name">Slim Sculpt</div><div class="other-card-price">от 410 леев/день</div></div>
+      <div class="other-card-body"><div class="other-card-name">Slim Sculpt</div><div class="other-card-price" data-i18n="other_slim_price">от 410 леев/день</div></div>
     </a>
     <a class="other-card" href="program-energy.html">
       <div class="other-card-img">⚡</div>
-      <div class="other-card-body"><div class="other-card-name">Energy Plus</div><div class="other-card-price">от 540 леев/день</div></div>
+      <div class="other-card-body"><div class="other-card-name">Energy Plus</div><div class="other-card-price" data-i18n="other_energy_price">от 540 леев/день</div></div>
     </a>
     <a class="other-card" href="program-personal.html">
       <div class="other-card-img">⭐</div>
-      <div class="other-card-body"><div class="other-card-name">Personal Plan</div><div class="other-card-price">от 600 леев/день</div></div>
+      <div class="other-card-body"><div class="other-card-name">Personal Plan</div><div class="other-card-price" data-i18n="other_personal_price">от 600 леев/день</div></div>
     </a>
   </div>
 </section></div>
