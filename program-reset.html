@@ -7,7 +7,135 @@
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}
+  /* ===== PHOTO IMAGES ===== */
+  .detail-hero-img .site-img,.detail-hero-img .site-img-round{object-fit:contain!important}
+  .hero-right .site-img{object-fit:contain!important;width:100%!important;height:100%!important;max-height:520px}
+  .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  /* Placeholder shown when image missing */
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; opacity: 0.45;
+    font-family: 'Nunito', sans-serif;
+  }
+  .img-placeholder span { font-size: 32px; }
+  .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
+
+  /* ===== UNIVERSAL IMAGE FIX ===== */
+  /* All images fit inside container without cropping */
+  .site-img, .site-img-round {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+  }
+  /* Containers must NOT have fixed height — let image define it */
+  .hero-right {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    align-items: stretch !important;
+  }
+  .prog-card-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .prog-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+  }
+  .how-img-big, .how-img-sm {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .how-img-big img.site-img, .how-img-sm img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .benefit-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .benefit-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .cta-right-img {
+    height: auto !important;
+    max-height: unset !important;
+    min-height: 300px;
+  }
+  .cta-right-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .detail-hero-img {
+    width: 280px !important;
+    height: auto !important;
+    min-height: unset !important;
+    border-radius: 20px !important;
+  }
+  .detail-hero-img img {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain !important;
+  }
+  .gallery-item {
+    height: auto !important;
+    min-height: 160px;
+  }
+  .gallery-item img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    object-fit: cover !important;
+  }
+  .prog-row-img {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .prog-row-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .other-card-img {
+    height: auto !important;
+    min-height: 80px;
+  }
+  .other-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    object-fit: cover !important;
+  }
+  .benefit-side-img {
+    height: auto !important;
+  }
+  .benefit-side-img img.site-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+</style>');
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +189,7 @@
   .lang-option.active{color:var(--white);font-weight:800}
   /* HERO DETAIL */
   .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px;max-width:1200px;margin:0 auto}
-  .detail-hero-img{border-radius:50%;width:280px;height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:80px;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+  .detail-hero-img{border-radius:50%;width:280px;height:280px;min-width:280px;min-height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3);overflow:hidden}
   .detail-hero-badge{display:inline-block;background:var(--gold);color:var(--green-dark);font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
   .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
   .detail-hero-desc{color:rgba(255,255,255,.78);font-size:14px;line-height:1.7;margin-bottom:24px;max-width:520px}
@@ -287,7 +415,7 @@
 
 <!-- HERO -->
 <div class="sc sc-dark"><section class="detail-hero">
-  <div class="detail-hero-img">🥦</div>
+  <div class="detail-hero-img" style="padding:0;overflow:hidden"><img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img-round" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div></div>
   <div>
     <div class="detail-hero-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
     <h1 class="detail-hero-title">Reset & Detox</h1>
@@ -331,7 +459,7 @@
         </div>
       </div>
     </div>
-    <div class="benefit-side-img">🥤</div>
+    <div class="benefit-side-img" style="padding:0;overflow:hidden"><img src="images/cta-bottle.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>cta-bottle.jpg</p></div></div>
   </div>
 </section></div>
 
@@ -341,11 +469,11 @@
   <h2 data-i18n="gallery_title">Галерея</h2>
   <p class="subtitle" data-i18n="gallery_sub">Откройте для себя кадры, созданные с теплом, которые рассказывают нашу историю без слов.</p>
   <div class="gallery-grid">
-    <div class="gallery-item">🥗</div>
-    <div class="gallery-item tall">🌿</div>
-    <div class="gallery-item">📦</div>
-    <div class="gallery-item">🥤</div>
-    <div class="gallery-item">🍱</div>
+    <div class="gallery-item" style="padding:0"><img src="images/gallery-1.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>gallery-1.jpg</p></div></div>
+    <div class="gallery-item tall" style="padding:0"><img src="images/gallery-2.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>gallery-2.jpg</p></div></div>
+    <div class="gallery-item" style="padding:0"><img src="images/gallery-2.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>gallery-1.jpg</p></div></div>
+    <div class="gallery-item" style="padding:0"><img src="images/gallery-3.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>gallery-1.jpg</p></div></div>
+    <div class="gallery-item" style="padding:0"><img src="images/gallery-4.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>gallery-1.jpg</p></div></div>
   </div>
 </section></div>
 
@@ -380,19 +508,19 @@
   <h2 data-i18n="other_programs_title">Другие программы</h2>
   <div class="other-grid">
     <a class="other-card" href="program-slim.html">
-      <div class="other-card-img">🥗</div>
+      <div class="other-card-img" style="padding:0;overflow:hidden"><img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div><div style="display:none">🥗</div>
       <div class="other-card-body"><div class="other-card-name">Slim Sculpt</div><div class="other-card-price" data-i18n="other_slim_price">от 410 леев/день</div></div>
     </a>
     <a class="other-card" href="program-balance.html">
-      <div class="other-card-img">🍱</div>
+      <div class="other-card-img" style="padding:0;overflow:hidden"><img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div><div style="display:none">🍱</div>
       <div class="other-card-body"><div class="other-card-name">Balance Daily</div><div class="other-card-price" data-i18n="other_balance_price">от 480 леев/день</div></div>
     </a>
     <a class="other-card" href="program-energy.html">
-      <div class="other-card-img">⚡</div>
+      <div class="other-card-img" style="padding:0;overflow:hidden"><img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div><div style="display:none">⚡</div>
       <div class="other-card-body"><div class="other-card-name">Energy Plus</div><div class="other-card-price" data-i18n="other_energy_price">от 540 леев/день</div></div>
     </a>
     <a class="other-card" href="program-personal.html">
-      <div class="other-card-img">⭐</div>
+      <div class="other-card-img" style="padding:0;overflow:hidden"><img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div><div style="display:none">⭐</div>
       <div class="other-card-body"><div class="other-card-name">Personal Plan</div><div class="other-card-price" data-i18n="other_personal_price">от 600 леев/день</div></div>
     </a>
   </div>

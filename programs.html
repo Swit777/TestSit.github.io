@@ -7,7 +7,134 @@
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}
+  /* ===== PHOTO IMAGES ===== */
+  .hero-right .site-img{object-fit:contain!important;width:100%!important;height:100%!important;max-height:520px}
+  .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  /* Placeholder shown when image missing */
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; opacity: 0.45;
+    font-family: 'Nunito', sans-serif;
+  }
+  .img-placeholder span { font-size: 32px; }
+  .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
+
+  /* ===== UNIVERSAL IMAGE FIX ===== */
+  /* All images fit inside container without cropping */
+  .site-img, .site-img-round {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+  }
+  /* Containers must NOT have fixed height — let image define it */
+  .hero-right {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    align-items: stretch !important;
+  }
+  .prog-card-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .prog-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+  }
+  .how-img-big, .how-img-sm {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .how-img-big img.site-img, .how-img-sm img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .benefit-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .benefit-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .cta-right-img {
+    height: auto !important;
+    max-height: unset !important;
+    min-height: 300px;
+  }
+  .cta-right-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .detail-hero-img {
+    width: 280px !important;
+    height: auto !important;
+    min-height: unset !important;
+    border-radius: 20px !important;
+  }
+  .detail-hero-img img {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain !important;
+  }
+  .gallery-item {
+    height: auto !important;
+    min-height: 160px;
+  }
+  .gallery-item img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    object-fit: cover !important;
+  }
+  .prog-row-img {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .prog-row-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .other-card-img {
+    height: auto !important;
+    min-height: 80px;
+  }
+  .other-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    object-fit: cover !important;
+  }
+  .benefit-side-img {
+    height: auto !important;
+  }
+  .benefit-side-img img.site-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+</style>');
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -257,7 +384,7 @@
 <div class="programs-list">
 
   <div class="prog-row">
-    <div class="prog-row-img">🥦<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Reset &amp; Detox</h3>
       <p data-i18n="pp_reset_desc">Reset &amp; Detox обеспечивает мягкий перезапуск организма без строгих ограничений. Блюда включают овощи, лёгкий белок и ингредиенты с детокс-эффектом, поддерживающие дренаж, пищеварение и сияние кожи. Программа снижает воспаление, давая ощущение лёгкости и стабильной энергии.</p>
@@ -286,11 +413,11 @@
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img">🥗<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img">🍱<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Balance Daily</h3>
       <p data-i18n="pp_balance_desc">Balance Daily идеально подходит для поддержания веса и полноценного сбалансированного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение и стабилизирует колебания сахара.</p>
@@ -319,11 +446,11 @@
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img">⚡<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img">⭐<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Personal Plan</h3>
       <p data-i18n="pp_personal_desc">Personal Plan создаётся индивидуально в соответствии с вашими целями и образом жизни. Программа начинается с анализа привычек питания и уровня активности, затем создаёт персонализированное решение. Каждый элемент, от калорий до комбинаций ингредиентов, адаптирован для поддержки вашего организма.</p>

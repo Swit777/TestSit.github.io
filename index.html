@@ -7,7 +7,135 @@
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important')
+  /* ===== PHOTO IMAGES ===== */
+  .cta-right-img .site-img{object-fit:contain!important}
+  .hero-right .site-img{object-fit:contain!important;width:100%!important;height:100%!important;max-height:520px}
+  .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  /* Placeholder shown when image missing */
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; opacity: 0.45;
+    font-family: 'Nunito', sans-serif;
+  }
+  .img-placeholder span { font-size: 32px; }
+  .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
+
+  /* ===== UNIVERSAL IMAGE FIX ===== */
+  /* All images fit inside container without cropping */
+  .site-img, .site-img-round {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+  }
+  /* Containers must NOT have fixed height — let image define it */
+  .hero-right {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    align-items: stretch !important;
+  }
+  .prog-card-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .prog-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+  }
+  .how-img-big, .how-img-sm {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .how-img-big img.site-img, .how-img-sm img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .benefit-img {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+  }
+  .benefit-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .cta-right-img {
+    height: auto !important;
+    max-height: unset !important;
+    min-height: 300px;
+  }
+  .cta-right-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .detail-hero-img {
+    width: 280px !important;
+    height: auto !important;
+    min-height: unset !important;
+    border-radius: 20px !important;
+  }
+  .detail-hero-img img {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain !important;
+  }
+  .gallery-item {
+    height: auto !important;
+    min-height: 160px;
+  }
+  .gallery-item img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    object-fit: cover !important;
+  }
+  .prog-row-img {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .prog-row-img img.site-img {
+    width: 100%;
+    height: auto;
+  }
+  .other-card-img {
+    height: auto !important;
+    min-height: 80px;
+  }
+  .other-card-img img.site-img {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    object-fit: cover !important;
+  }
+  .benefit-side-img {
+    height: auto !important;
+  }
+  .benefit-side-img img.site-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+</style>');
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,15 +196,13 @@
   .hero h1{font-family:'Playfair Display',serif;font-size:44px;line-height:1.18;color:var(--white);font-weight:700;margin-bottom:20px}
   .hero h1 span{color:var(--gold-light)}
   .hero-desc{color:rgba(255,255,255,.78);font-size:15px;line-height:1.72;max-width:400px;margin-bottom:36px}
-  .hero-right{flex:1;border-radius:20px;overflow:hidden;min-height:520px;background:linear-gradient(160deg,#4a7a3a,#2a4020);display:flex;align-items:center;justify-content:center}
-  .hero-right .big-emoji{font-size:120px;opacity:.25}
+  .hero-right{flex:1;border-radius:20px;overflow:hidden;height:520px;max-height:520px;background:linear-gradient(160deg,#4a7a3a,#2a4020);display:flex;align-items:center;justify-content:center}
   /* PROGRAMS */
   .programs-section{background:transparent;padding:60px 48px 70px}
   .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1260px;margin:0 auto}
   .prog-card{background:var(--white);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.9)}
   .prog-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,.32)}
-  .prog-card-img{height:168px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#e8f5e0 0%,#c8e0b8 100%)}
-  .prog-card-img .dish-emoji{font-size:90px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15))}
+  .prog-card-img{height:168px;min-height:168px;max-height:168px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#e8f5e0 0%,#c8e0b8 100%)}
   .prog-badge{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--gold);color:#1a2e1a;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
   .prog-badge::before{content:'⏱';font-size:9px}
   .prog-card-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
@@ -92,13 +218,19 @@
   .btn-sm{display:block;text-align:center;background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%);background-size:200% auto;color:#1a2e1a;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;transition:background-position .3s,box-shadow .2s;box-shadow:0 3px 10px rgba(201,168,76,.3)}
   .btn-sm:hover{background-position:right center;box-shadow:0 5px 16px rgba(201,168,76,.5)}
   /* HOW */
-  .how-section{background:transparent;padding:70px 40px}
+  .how-section{background:var(--green-dark);padding:70px 40px}
   .how-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .how-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .how-img{height:160px;border-radius:10px;background:linear-gradient(135deg,#b8d4b8,#7aab7a);display:flex;align-items:center;justify-content:center;font-size:36px}
-  .how-img.tall{height:200px;margin-top:-20px}
-  .how-text h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text-dark);margin-bottom:16px;line-height:1.3}
-  .how-text p{color:var(--text-mid);line-height:1.7;font-size:15px;margin-bottom:12px}
+  /* Left: 1 big + 2 small photos */
+  .how-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
+  .how-img-big{grid-column:1/-1;height:280px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#4a7a3a,#2a5020)}
+  .how-img-sm{height:180px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#4a7a3a,#2a5020)}
+  .how-img-big img,.how-img-sm img{width:100%;height:100%;object-fit:cover;display:block}
+  /* Right: text */
+  .how-text h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.25}
+  .how-text p{color:rgba(255,255,255,.78);line-height:1.75;font-size:15px;margin-bottom:16px}
+  /* Stats row */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+  .stat-item{background:var(--white);border-radius:12px;padding:18px 12px;text-align:center}
   .stats-row{display:flex;gap:32px;margin-top:28px}
   .stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--green-dark)}
   .stat-label{font-size:12px;color:var(--text-mid);margin-top:4px;line-height:1.3;text-align:center}
@@ -108,7 +240,7 @@
   .benefits-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .benefit-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}
   .benefit-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
-  .benefit-img{height:180px;background:linear-gradient(135deg,#c8e0c8,#8ab88a);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
+  .benefit-img{height:180px;min-height:180px;max-height:180px;background:linear-gradient(135deg,#c8e0c8,#8ab88a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .benefit-img .tag{position:absolute;top:12px;right:12px;background:var(--green-dark);color:var(--white);font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px}
   .benefit-body{padding:20px;background:var(--white)}
   .benefit-body h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--text-dark);margin-bottom:8px}
@@ -140,9 +272,7 @@
   .cta-form-group textarea{resize:none;min-height:80px}
   .btn-cta-submit{background:var(--gold);color:var(--green-dark);border:none;border-radius:8px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:background .2s,transform .15s;width:100%;margin-top:4px}
   .btn-cta-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
-  .cta-right-img{background:linear-gradient(135deg,#3a6030 0%,#1e3d18 100%);display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;overflow:hidden;min-height:400px}
-  .cta-right-img .bg-emoji{font-size:120px;opacity:.15;position:absolute}
-  .cta-right-img .main-emoji{font-size:80px;z-index:1}
+  .cta-right-img{background:linear-gradient(135deg,#3a6030 0%,#1e3d18 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;height:400px;max-height:400px}
   /* FOOTER */
   footer{background:var(--green-dark);padding:40px}
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -185,7 +315,7 @@
     .hero h1{font-size:30px}
     .hero-right{min-height:220px}
     .programs-grid{grid-template-columns:repeat(2,1fr)}
-    .how-inner{grid-template-columns:1fr}.how-imgs{display:none}
+    .how-inner{grid-template-columns:1fr}.how-imgs{grid-template-columns:1fr 1fr}
     .benefits-grid{grid-template-columns:1fr}
     .testimonials-slider{grid-template-columns:1fr}
     .cta-section{grid-template-columns:1fr;margin:20px}.cta-right-img{display:none}
@@ -324,7 +454,7 @@
     <a class="btn-primary" href="contacts.html" data-i18n="nav_connect">Связаться</a>
   </section>
   <div class="hero-right">
-    <div class="big-emoji">🥗</div>
+    <img src="images/hero-main.jpg" alt="VITAFIT" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>hero-main.jpg</p></div>
   </div>
 </div></div>
 
@@ -334,7 +464,7 @@
   <div class="programs-grid">
     <div class="prog-card">
       <div class="prog-card-img">
-        <div class="dish-emoji">🥗</div>
+        <img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -351,7 +481,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <div class="dish-emoji">🥙</div>
+        <img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -368,7 +498,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <div class="dish-emoji">🍱</div>
+        <img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -385,7 +515,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <div class="dish-emoji">🥩</div>
+        <img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -402,7 +532,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <div class="dish-emoji">👤</div>
+        <img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -420,11 +550,12 @@
   </div>
 </section></div>
 
-<div class="sc sc-offwhite"><section class="how-section" style="margin:0;border-radius:0">
+<div class="sc sc-dark"><section class="how-section" style="margin:0;border-radius:0">
   <div class="how-inner">
     <div class="how-imgs">
-      <div class="how-img">🍽️</div><div class="how-img tall">📦</div>
-      <div class="how-img">🥤</div><div class="how-img">🌿</div>
+      <div class="how-img-big"><img src="images/how-1.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>how-1.jpg</p></div></div>
+      <div class="how-img-sm"><img src="images/how-2.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>how-2.jpg</p></div></div>
+      <div class="how-img-sm"><img src="images/how-3.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>how-3.jpg</p></div></div>
     </div>
     <div class="how-text">
       <h2 data-i18n="how_title">Как создаются программы VITAFIT</h2>
@@ -443,9 +574,9 @@
   <h2 class="section-title" data-i18n="ben_title">Преимущества программ VITAFIT</h2>
   <p class="section-sub" data-i18n="ben_sub">Наши программы созданы для того, чтобы работать в гармонии с организмом — изнутри наружу — обеспечивая реальные, безопасные и устойчивые результаты.</p>
   <div class="benefits-grid">
-    <div class="benefit-card"><div class="benefit-img">🥬<div class="tag" data-i18n="ben1_tag">Натуральный состав</div></div><div class="benefit-body"><h4 data-i18n="ben1_title">Свежие и натуральные ингредиенты</h4><p data-i18n="ben1_desc">Ингредиенты чистые, сбалансированные и тщательно составленные, чтобы организм легко усваивал нутриенты, поддерживая метаболизм и физический баланс.</p></div></div>
-    <div class="benefit-card"><div class="benefit-img">📋<div class="tag" data-i18n="ben2_tag">Научный подход</div></div><div class="benefit-body"><h4 data-i18n="ben2_title">Разработано нутрициологами</h4><p data-i18n="ben2_desc">Программы составлены так, чтобы организм мог поддерживать стабильный уровень энергии и способствовать самовосстановлению каждый день.</p></div></div>
-    <div class="benefit-card"><div class="benefit-img">🚚<div class="tag" data-i18n="ben3_tag">Доставка</div></div><div class="benefit-body"><h4 data-i18n="ben3_title">Удобная доставка каждый день</h4><p data-i18n="ben3_desc">Свежие, правильно составленные блюда приезжают к вам домой, чтобы вы чувствовали себя легко и заряженно.</p></div></div>
+    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-natural.jpg" alt="Натуральный состав" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-natural.jpg</p></div><div class="tag" data-i18n="ben1_tag">Натуральный состав</div></div><div class="benefit-body"><h4 data-i18n="ben1_title">Свежие и натуральные ингредиенты</h4><p data-i18n="ben1_desc">Ингредиенты чистые, сбалансированные и тщательно составленные, чтобы организм легко усваивал нутриенты, поддерживая метаболизм и физический баланс.</p></div></div>
+    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-science.jpg" alt="Научный подход" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-science.jpg</p></div><div class="tag" data-i18n="ben2_tag">Научный подход</div></div><div class="benefit-body"><h4 data-i18n="ben2_title">Разработано нутрициологами</h4><p data-i18n="ben2_desc">Программы составлены так, чтобы организм мог поддерживать стабильный уровень энергии и способствовать самовосстановлению каждый день.</p></div></div>
+    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-delivery.jpg" alt="Доставка" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-delivery.jpg</p></div><div class="tag" data-i18n="ben3_tag">Доставка</div></div><div class="benefit-body"><h4 data-i18n="ben3_title">Удобная доставка каждый день</h4><p data-i18n="ben3_desc">Свежие, правильно составленные блюда приезжают к вам домой, чтобы вы чувствовали себя легко и заряженно.</p></div></div>
   </div>
 </section></div>
 
@@ -516,8 +647,7 @@
     <button class="btn-cta-submit" data-i18n="f_submit">Отправить сообщение</button>
   </div>
   <div class="cta-right-img">
-    <div class="bg-emoji">🍋</div>
-    <div class="main-emoji">🥤</div>
+    <img src="images/cta-bottle.jpg" alt="Детокс" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>cta-bottle.jpg</p></div>
   </div>
 </section></div>
 
