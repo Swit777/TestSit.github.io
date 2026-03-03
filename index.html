@@ -7,21 +7,33 @@
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important')
-  /* ===== PHOTO IMAGES ===== */
-  .cta-right-img .site-img{object-fit:contain!important}
-  .hero-right .site-img{object-fit:contain!important;width:100%!important;height:100%!important;max-height:520px}
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VITAFIT – Главная</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
+
+  /* ── УНИВЕРСАЛЬНЫЕ СТИЛИ ИЗОБРАЖЕНИЙ ── */
   .site-img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
   .site-img-round {
-    width: 100%; height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 50%;
+    display: block;
   }
-  /* Placeholder shown when image missing */
   .img-placeholder {
     width: 100%; height: 100%;
     display: flex; flex-direction: column;
@@ -32,120 +44,7 @@
   .img-placeholder span { font-size: 32px; }
   .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
 
-  /* ===== UNIVERSAL IMAGE FIX ===== */
-  /* All images fit inside container without cropping */
-  .site-img, .site-img-round {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-    object-position: center;
-  }
-  /* Containers must NOT have fixed height — let image define it */
-  .hero-right {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    align-items: stretch !important;
-  }
-  .prog-card-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .prog-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 140px;
-  }
-  .how-img-big, .how-img-sm {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .how-img-big img.site-img, .how-img-sm img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .benefit-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .benefit-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .cta-right-img {
-    height: auto !important;
-    max-height: unset !important;
-    min-height: 300px;
-  }
-  .cta-right-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .detail-hero-img {
-    width: 280px !important;
-    height: auto !important;
-    min-height: unset !important;
-    border-radius: 20px !important;
-  }
-  .detail-hero-img img {
-    width: 280px;
-    height: auto;
-    border-radius: 20px;
-    object-fit: contain !important;
-  }
-  .gallery-item {
-    height: auto !important;
-    min-height: 160px;
-  }
-  .gallery-item img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 160px;
-    object-fit: cover !important;
-  }
-  .prog-row-img {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .prog-row-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .other-card-img {
-    height: auto !important;
-    min-height: 80px;
-  }
-  .other-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 80px;
-    object-fit: cover !important;
-  }
-  .benefit-side-img {
-    height: auto !important;
-  }
-  .benefit-side-img img.site-img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-
-</style>');
-})();
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VITAFIT – Главная</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
-  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
-      /* ── NAV ─────────────────────────────────────────────────── */
+  /* ── NAV ── */
   .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
   nav{background:#2a4228;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
   .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
@@ -162,33 +61,26 @@
   .nav-phone:hover{color:#e2c47a}
   .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1a2e1a!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
   .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
-  .lang-switcher{position:relative;margin-left:4px;user-select:none}
-  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
-  .lang-trigger:hover{color:#fff}
-  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
-  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
-  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
-  .lang-switcher.open .lang-dropdown{display:block}
-  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
-  .lang-option:hover{background:rgba(255,255,255,.08);color:#fff}
-  .lang-option.active{color:#fff;font-weight:800}
-  /* ─────────────────────────────────────────────────────── */
+
   /* LANG SWITCHER */
-  .lang-switcher{position:relative;margin-left:4px;user-select:none}
-  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
-  .lang-trigger:hover{color:var(--white)}
-  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher{position:relative;margin-left:16px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;transition:all .2s}
+  .lang-trigger:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45)}
+  .lang-trigger .lang-arrow{font-size:9px;opacity:.7;transition:transform .2s;margin-left:2px}
+  .lang-switcher.open .lang-trigger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
   .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
-  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--green-dark);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;min-width:70px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:200}
   .lang-switcher.open .lang-dropdown{display:block}
-  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
-  .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
-  .lang-option.active{color:var(--white);font-weight:800}
+  .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
+  .lang-option.active{color:var(--green-dark);background:var(--gold)}
+
   .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--text-dark);margin-bottom:12px;text-align:center}
   .section-sub{color:var(--text-mid);font-size:15px;text-align:center;max-width:560px;margin:0 auto 48px;line-height:1.6}
   .section-title.white{color:var(--white)}.section-sub.white{color:rgba(255,255,255,.75)}
   .btn-primary{display:inline-block;background:var(--gold);color:var(--green-dark);padding:14px 32px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:background .2s,transform .15s}
   .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+
   /* HERO */
   .hero-wrap{padding:20px 40px 32px;background:var(--white);display:flex;gap:16px;align-items:stretch;max-width:1280px;margin:0 auto}
   .hero-left{flex:1;background:#3a5c38;border-radius:20px;padding:60px 52px;display:flex;flex-direction:column;justify-content:center;min-height:520px}
@@ -196,13 +88,44 @@
   .hero h1{font-family:'Playfair Display',serif;font-size:44px;line-height:1.18;color:var(--white);font-weight:700;margin-bottom:20px}
   .hero h1 span{color:var(--gold-light)}
   .hero-desc{color:rgba(255,255,255,.78);font-size:15px;line-height:1.72;max-width:400px;margin-bottom:36px}
-  .hero-right{flex:1;border-radius:20px;overflow:hidden;height:520px;max-height:520px;background:linear-gradient(160deg,#4a7a3a,#2a4020);display:flex;align-items:center;justify-content:center}
+
+  /* HERO IMAGE — flex:1, фиксированная высота, cover */
+  .hero-right {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 520px;
+    background: linear-gradient(160deg,#4a7a3a,#2a4020);
+    position: relative;
+  }
+  .hero-right .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
   /* PROGRAMS */
   .programs-section{background:transparent;padding:60px 48px 70px}
   .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1260px;margin:0 auto}
   .prog-card{background:var(--white);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.9)}
   .prog-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,.32)}
-  .prog-card-img{height:168px;min-height:168px;max-height:168px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#e8f5e0 0%,#c8e0b8 100%)}
+
+  /* КАРТОЧКИ ПРОГРАММ — фиксированная высота, cover */
+  .prog-card-img {
+    height: 168px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(160deg,#e8f5e0 0%,#c8e0b8 100%);
+    flex-shrink: 0;
+  }
+  .prog-card-img .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .prog-badge{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--gold);color:#1a2e1a;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
   .prog-badge::before{content:'⏱';font-size:9px}
   .prog-card-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
@@ -217,34 +140,70 @@
   .macro-val{font-size:12px;font-weight:700;color:var(--text-dark);display:block}
   .btn-sm{display:block;text-align:center;background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%);background-size:200% auto;color:#1a2e1a;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;transition:background-position .3s,box-shadow .2s;box-shadow:0 3px 10px rgba(201,168,76,.3)}
   .btn-sm:hover{background-position:right center;box-shadow:0 5px 16px rgba(201,168,76,.5)}
+
   /* HOW */
   .how-section{background:var(--green-dark);padding:70px 40px}
   .how-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  /* Left: 1 big + 2 small photos */
   .how-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
-  .how-img-big{grid-column:1/-1;height:280px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#4a7a3a,#2a5020)}
-  .how-img-sm{height:180px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#4a7a3a,#2a5020)}
-  .how-img-big img,.how-img-sm img{width:100%;height:100%;object-fit:cover;display:block}
-  /* Right: text */
+
+  /* HOW IMAGES — фиксированная высота, cover */
+  .how-img-big {
+    grid-column: 1/-1;
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg,#4a7a3a,#2a5020);
+  }
+  .how-img-big .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .how-img-sm {
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg,#4a7a3a,#2a5020);
+  }
+  .how-img-sm .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .how-text h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.25}
   .how-text p{color:rgba(255,255,255,.78);line-height:1.75;font-size:15px;margin-bottom:16px}
-  /* Stats row */
-  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
-  .stat-item{background:var(--white);border-radius:12px;padding:18px 12px;text-align:center}
   .stats-row{display:flex;gap:32px;margin-top:28px}
   .stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--green-dark)}
   .stat-label{font-size:12px;color:var(--text-mid);margin-top:4px;line-height:1.3;text-align:center}
-  .stat-item{text-align:center}
+  .stat-item{text-align:center;background:var(--white);border-radius:12px;padding:18px 12px}
+
   /* BENEFITS */
   .benefits-section{background:transparent;padding:70px 40px}
   .benefits-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .benefit-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}
   .benefit-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
-  .benefit-img{height:180px;min-height:180px;max-height:180px;background:linear-gradient(135deg,#c8e0c8,#8ab88a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+  /* BENEFIT IMAGES — фиксированная высота, cover */
+  .benefit-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg,#c8e0c8,#8ab88a);
+  }
+  .benefit-img .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
   .benefit-img .tag{position:absolute;top:12px;right:12px;background:var(--green-dark);color:var(--white);font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px}
   .benefit-body{padding:20px;background:var(--white)}
   .benefit-body h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--text-dark);margin-bottom:8px}
   .benefit-body p{font-size:13px;color:var(--text-mid);line-height:1.6}
+
   /* TESTIMONIALS */
   .testimonials-section{background:transparent;padding:70px 40px}
   .testimonials-slider{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -255,6 +214,7 @@
   .author-avatar{width:42px;height:42px;border-radius:50%;background:var(--green-mid);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px}
   .author-name{font-weight:700;font-size:14px;color:var(--text-dark)}
   .author-sub{font-size:12px;color:var(--text-light)}
+
   /* CTA */
   .cta-section{background:transparent;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;max-width:1100px;margin:60px auto;box-shadow:0 12px 40px rgba(0,0,0,.15)}
   .cta-form-wrap{padding:50px 48px}
@@ -272,7 +232,23 @@
   .cta-form-group textarea{resize:none;min-height:80px}
   .btn-cta-submit{background:var(--gold);color:var(--green-dark);border:none;border-radius:8px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:background .2s,transform .15s;width:100%;margin-top:4px}
   .btn-cta-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
-  .cta-right-img{background:linear-gradient(135deg,#3a6030 0%,#1e3d18 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;height:400px;max-height:400px}
+
+  /* CTA IMAGE — заполняет правую колонку полностью */
+  .cta-right-img {
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg,#3a6030 0%,#1e3d18 100%);
+    min-height: 400px;
+  }
+  .cta-right-img .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
   /* FOOTER */
   footer{background:var(--green-dark);padding:40px}
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -308,27 +284,14 @@
   .btn-modal-order:hover{background:var(--gold-light)}
   .btn-modal-close{background:transparent;color:var(--text-mid);border:2px solid #ddd;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
   .btn-modal-close:hover{border-color:var(--green-mid);color:var(--green-dark)}
-  @media(max-width:900px){
-    nav{padding:0 16px}.nav-links{display:none}
-    .hero-wrap{flex-direction:column;padding:12px 16px 20px}
-    .hero-left{padding:40px 28px;min-height:auto}
-    .hero h1{font-size:30px}
-    .hero-right{min-height:220px}
-    .programs-grid{grid-template-columns:repeat(2,1fr)}
-    .how-inner{grid-template-columns:1fr}.how-imgs{grid-template-columns:1fr 1fr}
-    .benefits-grid{grid-template-columns:1fr}
-    .testimonials-slider{grid-template-columns:1fr}
-    .cta-section{grid-template-columns:1fr;margin:20px}.cta-right-img{display:none}
-  }
 
-  /* FIX: intl-tel-input overlap */
-  .iti { width: 100% !important; }
-  .iti__flag-container { position: absolute !important; }
-  .iti input[type=tel], .iti input[type=text] {
-    padding-left: 90px !important;
-    width: 100% !important;
-  }
-  .phone-iti-wrap { width: 100%; }
+  /* SECTION CONTAINERS */
+  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:1200px;width:calc(100% - 48px)}
+  .sc:first-of-type{margin-top:32px}
+  .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+  .sc-green{background:#3a5c38}
+  .sc-offwhite{background:var(--off-white);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  .sc-dark{background:var(--green-dark);box-shadow:0 4px 24px rgba(0,0,0,.14)}
 
   /* GOLDEN BUTTONS */
   .btn-primary, .btn-order, .btn-cta-submit, .btn-om-submit,
@@ -353,12 +316,6 @@
     box-shadow: 0 6px 22px rgba(201,168,76,0.55) !important;
     color: #1a2e1a !important;
   }
-  .btn-primary:active, .btn-order:active, .btn-cta-submit:active, .btn-om-submit:active,
-  .btn-fill:active, .btn-sm:active, .btn-contact:active {
-    transform: translateY(0) scale(0.99) !important;
-    box-shadow: 0 2px 8px rgba(201,168,76,0.3) !important;
-  }
-  /* Outline buttons stay as-is */
   .btn-outline {
     background: transparent !important;
     color: var(--green-dark) !important;
@@ -374,48 +331,35 @@
     box-shadow: 0 4px 12px rgba(45,74,45,0.25) !important;
   }
 
-
-  /* Remove grey background from phone flag area */
-  .iti__flag-container{background:transparent!important}
-  .iti__selected-flag{background:transparent!important;border-radius:8px 0 0 8px!important}
-  .iti__selected-flag:hover,.iti__selected-flag:focus{background:rgba(0,0,0,.04)!important}
-  .iti--separate-dial-code .iti__selected-flag{background:rgba(0,0,0,.03)!important;border-right:1px solid #e2e2e2!important}
-  .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(0,0,0,.06)!important}
-  /* Dark bg forms (modal, cta) */
+  /* ITI Phone */
+  .iti { width: 100% !important; }
+  .iti__flag-container { position: absolute !important; background: transparent !important; }
+  .iti__selected-flag { background: transparent !important; border-radius: 8px 0 0 8px !important; }
+  .iti__selected-flag:hover,.iti__selected-flag:focus { background: rgba(0,0,0,.04) !important; }
+  .iti--separate-dial-code .iti__selected-flag { background: rgba(0,0,0,.03) !important; border-right: 1px solid #e2e2e2 !important; }
+  .iti--separate-dial-code .iti__selected-flag:hover { background: rgba(0,0,0,.06) !important; }
   .order-modal .iti--separate-dial-code .iti__selected-flag,
-  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag{background:rgba(255,255,255,.08)!important;border-right:1px solid rgba(255,255,255,.15)!important}
+  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag { background: rgba(255,255,255,.08) !important; border-right: 1px solid rgba(255,255,255,.15) !important; }
   .order-modal .iti--separate-dial-code .iti__selected-flag:hover,
-  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(255,255,255,.15)!important}
+  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover { background: rgba(255,255,255,.15) !important; }
+  .phone-iti-wrap { width: 100%; }
+  .iti input[type=tel], .iti input[type=text] { padding-left: 90px !important; width: 100% !important; }
 
-
-    /* LANG SWITCHER — dropdown */
-  .lang-switcher{position:relative;margin-left:16px;user-select:none}
-  .lang-trigger{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;transition:all .2s}
-  .lang-trigger:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45)}
-  .lang-trigger .lang-arrow{font-size:9px;opacity:.7;transition:transform .2s;margin-left:2px}
-  .lang-switcher.open .lang-trigger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
-  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
-  .lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--green-dark);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;min-width:70px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:200}
-  .lang-switcher.open .lang-dropdown{display:block}
-  .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
-  .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
-  .lang-option.active{color:var(--green-dark);background:var(--gold)}
-
-  /* SECTION CONTAINERS */
-  /* SECTION CONTAINERS */
-  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:1200px;width:calc(100% - 48px)}
-  .sc:first-of-type{margin-top:32px}
-  .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
-  .sc-green{background:#3a5c38}
-  .sc-offwhite{background:var(--off-white);box-shadow:0 2px 16px rgba(0,0,0,.06)}
-  .sc-dark{background:var(--green-dark);box-shadow:0 4px 24px rgba(0,0,0,.14)}
-  @media(max-width:900px){.sc{width:calc(100% - 24px)}}
+  @media(max-width:900px){
+    nav{padding:0 16px}.nav-links{display:none}
+    .hero-wrap{flex-direction:column;padding:12px 16px 20px}
+    .hero-left{padding:40px 28px;min-height:auto}
+    .hero h1{font-size:30px}
+    .hero-right{height:260px}
+    .programs-grid{grid-template-columns:repeat(2,1fr)}
+    .how-inner{grid-template-columns:1fr}.how-imgs{grid-template-columns:1fr 1fr}
+    .benefits-grid{grid-template-columns:1fr}
+    .testimonials-slider{grid-template-columns:1fr}
+    .cta-section{grid-template-columns:1fr;margin:20px}.cta-right-img{display:none}
+    .sc{width:calc(100% - 24px)}
+  }
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
-  <style>
-    .iti{width:100%}
-    .iti__flag-container{z-index:10}
-  </style>
 </head>
 <body>
 
@@ -574,9 +518,27 @@
   <h2 class="section-title" data-i18n="ben_title">Преимущества программ VITAFIT</h2>
   <p class="section-sub" data-i18n="ben_sub">Наши программы созданы для того, чтобы работать в гармонии с организмом — изнутри наружу — обеспечивая реальные, безопасные и устойчивые результаты.</p>
   <div class="benefits-grid">
-    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-natural.jpg" alt="Натуральный состав" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-natural.jpg</p></div><div class="tag" data-i18n="ben1_tag">Натуральный состав</div></div><div class="benefit-body"><h4 data-i18n="ben1_title">Свежие и натуральные ингредиенты</h4><p data-i18n="ben1_desc">Ингредиенты чистые, сбалансированные и тщательно составленные, чтобы организм легко усваивал нутриенты, поддерживая метаболизм и физический баланс.</p></div></div>
-    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-science.jpg" alt="Научный подход" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-science.jpg</p></div><div class="tag" data-i18n="ben2_tag">Научный подход</div></div><div class="benefit-body"><h4 data-i18n="ben2_title">Разработано нутрициологами</h4><p data-i18n="ben2_desc">Программы составлены так, чтобы организм мог поддерживать стабильный уровень энергии и способствовать самовосстановлению каждый день.</p></div></div>
-    <div class="benefit-card"><div class="benefit-img" style="padding:0;overflow:hidden"><img src="images/benefit-delivery.jpg" alt="Доставка" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-delivery.jpg</p></div><div class="tag" data-i18n="ben3_tag">Доставка</div></div><div class="benefit-body"><h4 data-i18n="ben3_title">Удобная доставка каждый день</h4><p data-i18n="ben3_desc">Свежие, правильно составленные блюда приезжают к вам домой, чтобы вы чувствовали себя легко и заряженно.</p></div></div>
+    <div class="benefit-card">
+      <div class="benefit-img">
+        <img src="images/benefit-natural.jpg" alt="Натуральный состав" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-natural.jpg</p></div>
+        <div class="tag" data-i18n="ben1_tag">Натуральный состав</div>
+      </div>
+      <div class="benefit-body"><h4 data-i18n="ben1_title">Свежие и натуральные ингредиенты</h4><p data-i18n="ben1_desc">Ингредиенты чистые, сбалансированные и тщательно составленные, чтобы организм легко усваивал нутриенты, поддерживая метаболизм и физический баланс.</p></div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-img">
+        <img src="images/benefit-science.jpg" alt="Научный подход" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-science.jpg</p></div>
+        <div class="tag" data-i18n="ben2_tag">Научный подход</div>
+      </div>
+      <div class="benefit-body"><h4 data-i18n="ben2_title">Разработано нутрициологами</h4><p data-i18n="ben2_desc">Программы составлены так, чтобы организм мог поддерживать стабильный уровень энергии и способствовать самовосстановлению каждый день.</p></div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-img">
+        <img src="images/benefit-delivery.jpg" alt="Доставка" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>benefit-delivery.jpg</p></div>
+        <div class="tag" data-i18n="ben3_tag">Доставка</div>
+      </div>
+      <div class="benefit-body"><h4 data-i18n="ben3_title">Удобная доставка каждый день</h4><p data-i18n="ben3_desc">Свежие, правильно составленные блюда приезжают к вам домой, чтобы вы чувствовали себя легко и заряженно.</p></div>
+    </div>
   </div>
 </section></div>
 
@@ -593,7 +555,6 @@
   <div class="cta-form-wrap">
     <h2 data-i18n="cta_title">Первый шаг к здоровому образу жизни начинается здесь</h2>
     <p data-i18n="cta_sub">Оставьте нам сообщение, и мы поможем вам выбрать программу, которая вам подходит.</p>
-
     <div class="cta-form-group">
       <label data-i18n="f_name">Имя и Фамилия</label>
       <input type="text" placeholder="Имя и Фамилия" data-i18n="f_name_ph">
@@ -740,20 +701,19 @@ function closeModal(e) {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('.phone-iti').forEach(function(el){
-        intlTelInput(el, {
-          initialCountry: 'md',
-          preferredCountries: ['md', 'ro', 'ru', 'ua'],
-          separateDialCode: true,
-          utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
-        });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.phone-iti').forEach(function(el){
+      intlTelInput(el, {
+        initialCountry: 'md',
+        preferredCountries: ['md', 'ro', 'ru', 'ua'],
+        separateDialCode: true,
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
       });
     });
-  // After ITI init, re-apply phone placeholders from lang
+  });
   function applyPhonePlaceholders() {
     const lang = localStorage.getItem('vitafit_lang') || 'ru';
     if (typeof TRANSLATIONS === 'undefined') return;
@@ -768,8 +728,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDi
     });
   }
   setTimeout(applyPhonePlaceholders, 600);
-
-  </script>
-  <script src="lang.js"></script>
+</script>
+<script src="lang.js"></script>
 </body>
 </html>

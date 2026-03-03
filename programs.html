@@ -3,24 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <script>
-// Anti-flash: hide body immediately, apply lang before paint
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important}
-  /* ===== PHOTO IMAGES ===== */
-  .hero-right .site-img{object-fit:contain!important;width:100%!important;height:100%!important;max-height:520px}
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VITAFIT – Программы</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── УНИВЕРСАЛЬНЫЕ СТИЛИ ИЗОБРАЖЕНИЙ ── */
   .site-img {
     width: 100%; height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
   .site-img-round {
     width: 100%; height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
-  /* Placeholder shown when image missing */
   .img-placeholder {
     width: 100%; height: 100%;
     display: flex; flex-direction: column;
@@ -31,116 +36,151 @@
   .img-placeholder span { font-size: 32px; }
   .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
 
-  /* ===== UNIVERSAL IMAGE FIX ===== */
-  /* All images fit inside container without cropping */
-  .site-img, .site-img-round {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-    object-position: center;
-  }
-  /* Containers must NOT have fixed height — let image define it */
-  .hero-right {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    align-items: stretch !important;
-  }
-  .prog-card-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .prog-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 140px;
-  }
-  .how-img-big, .how-img-sm {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .how-img-big img.site-img, .how-img-sm img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .benefit-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .benefit-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .cta-right-img {
-    height: auto !important;
-    max-height: unset !important;
-    min-height: 300px;
-  }
-  .cta-right-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
+  /* Круглое фото героя на страницах программ */
   .detail-hero-img {
-    width: 280px !important;
-    height: auto !important;
-    min-height: unset !important;
-    border-radius: 20px !important;
+    border-radius: 50%;
+    width: 280px; height: 280px;
+    min-width: 280px; min-height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
   }
-  .detail-hero-img img {
-    width: 280px;
-    height: auto;
-    border-radius: 20px;
-    object-fit: contain !important;
-  }
-  .gallery-item {
-    height: auto !important;
-    min-height: 160px;
-  }
-  .gallery-item img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 160px;
-    object-fit: cover !important;
-  }
-  .prog-row-img {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .prog-row-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .other-card-img {
-    height: auto !important;
-    min-height: 80px;
-  }
-  .other-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 80px;
-    object-fit: cover !important;
-  }
-  .benefit-side-img {
-    height: auto !important;
-  }
-  .benefit-side-img img.site-img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
+  .detail-hero-img img, .detail-hero-img .site-img, .detail-hero-img .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
-</style>');
-})();
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VITAFIT – Программы</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
+  /* Галерея */
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .gallery-item .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Боковое изображение преимуществ */
+  .benefit-side-img {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 320px;
+  }
+  .benefit-side-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Картинки строк программ (programs.html) */
+  .prog-row-img {
+    overflow: hidden;
+    min-height: 220px;
+    position: relative;
+    background: linear-gradient(135deg,#4a7a3a,#2a5020);
+  }
+  .prog-row-img .site-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+  }
+
+  /* Карточки других программ */
+  .other-card-img {
+    height: 100px;
+    overflow: hidden;
+  }
+  .other-card-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* CTA правая колонка */
+  .cta-right-img {
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+  }
+  .cta-right-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* Hero правая колонка */
+  .hero-right {
+    overflow: hidden;
+  }
+  .hero-right .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Карточки программ — круглое фото */
+  .prog-card-img {
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .prog-card-img-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  .prog-card-img-circle .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* How секция */
+  .how-img-big {
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .how-img-big .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .how-img-sm {
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .how-img-sm .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Benefits */
+  .benefit-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .benefit-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
   body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
@@ -384,7 +424,11 @@
 <div class="programs-list">
 
   <div class="prog-row">
-    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">
+      <img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+    </div>
     <div class="prog-row-body">
       <h3>Reset &amp; Detox</h3>
       <p data-i18n="pp_reset_desc">Reset &amp; Detox обеспечивает мягкий перезапуск организма без строгих ограничений. Блюда включают овощи, лёгкий белок и ингредиенты с детокс-эффектом, поддерживающие дренаж, пищеварение и сияние кожи. Программа снижает воспаление, давая ощущение лёгкости и стабильной энергии.</p>
@@ -413,11 +457,19 @@
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">
+      <img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+    </div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">
+      <img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+    </div>
     <div class="prog-row-body">
       <h3>Balance Daily</h3>
       <p data-i18n="pp_balance_desc">Balance Daily идеально подходит для поддержания веса и полноценного сбалансированного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение и стабилизирует колебания сахара.</p>
@@ -446,11 +498,19 @@
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">
+      <img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+    </div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img" style="padding:0;overflow:hidden"><img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div></div><div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">
+      <img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+    </div>
     <div class="prog-row-body">
       <h3>Personal Plan</h3>
       <p data-i18n="pp_personal_desc">Personal Plan создаётся индивидуально в соответствии с вашими целями и образом жизни. Программа начинается с анализа привычек питания и уровня активности, затем создаёт персонализированное решение. Каждый элемент, от калорий до комбинаций ингредиентов, адаптирован для поддержки вашего организма.</p>

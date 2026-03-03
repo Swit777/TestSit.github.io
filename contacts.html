@@ -3,115 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <script>
-// Anti-flash: hide body immediately, apply lang before paint
 (function(){
   var l=localStorage.getItem('vitafit_lang')||'ru';
   document.documentElement.setAttribute('data-lang-loading',l);
-  document.write('<style id="anti-flash-style">body{visibility:hidden!important}
-  /* ===== UNIVERSAL IMAGE FIX ===== */
-  /* All images fit inside container without cropping */
-  .site-img, .site-img-round {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-    object-position: center;
-  }
-  /* Containers must NOT have fixed height — let image define it */
-  .hero-right {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    align-items: stretch !important;
-  }
-  .prog-card-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .prog-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 140px;
-  }
-  .how-img-big, .how-img-sm {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .how-img-big img.site-img, .how-img-sm img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .benefit-img {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0 !important;
-  }
-  .benefit-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .cta-right-img {
-    height: auto !important;
-    max-height: unset !important;
-    min-height: 300px;
-  }
-  .cta-right-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .detail-hero-img {
-    width: 280px !important;
-    height: auto !important;
-    min-height: unset !important;
-    border-radius: 20px !important;
-  }
-  .detail-hero-img img {
-    width: 280px;
-    height: auto;
-    border-radius: 20px;
-    object-fit: contain !important;
-  }
-  .gallery-item {
-    height: auto !important;
-    min-height: 160px;
-  }
-  .gallery-item img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 160px;
-    object-fit: cover !important;
-  }
-  .prog-row-img {
-    height: auto !important;
-    min-height: unset !important;
-  }
-  .prog-row-img img.site-img {
-    width: 100%;
-    height: auto;
-  }
-  .other-card-img {
-    height: auto !important;
-    min-height: 80px;
-  }
-  .other-card-img img.site-img {
-    width: 100%;
-    height: auto;
-    min-height: 80px;
-    object-fit: cover !important;
-  }
-  .benefit-side-img {
-    height: auto !important;
-  }
-  .benefit-side-img img.site-img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-
-</style>');
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,6 +14,171 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
 <style>
+  /* ── УНИВЕРСАЛЬНЫЕ СТИЛИ ИЗОБРАЖЕНИЙ ── */
+  .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; opacity: 0.45;
+    font-family: 'Nunito', sans-serif;
+  }
+  .img-placeholder span { font-size: 32px; }
+  .img-placeholder p { font-size: 11px; color: inherit; text-align: center; padding: 0 12px; }
+
+  /* Круглое фото героя на страницах программ */
+  .detail-hero-img {
+    border-radius: 50%;
+    width: 280px; height: 280px;
+    min-width: 280px; min-height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  }
+  .detail-hero-img img, .detail-hero-img .site-img, .detail-hero-img .site-img-round {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Галерея */
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .gallery-item .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Боковое изображение преимуществ */
+  .benefit-side-img {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 320px;
+  }
+  .benefit-side-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Картинки строк программ (programs.html) */
+  .prog-row-img {
+    overflow: hidden;
+    min-height: 220px;
+    position: relative;
+  }
+  .prog-row-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* Карточки других программ */
+  .other-card-img {
+    height: 100px;
+    overflow: hidden;
+  }
+  .other-card-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* CTA правая колонка */
+  .cta-right-img {
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+  }
+  .cta-right-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* Hero правая колонка */
+  .hero-right {
+    overflow: hidden;
+  }
+  .hero-right .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Карточки программ — круглое фото */
+  .prog-card-img {
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .prog-card-img-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  .prog-card-img-circle .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* How секция */
+  .how-img-big {
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .how-img-big .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .how-img-sm {
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .how-img-sm .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Benefits */
+  .benefit-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .benefit-img .site-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
   body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
