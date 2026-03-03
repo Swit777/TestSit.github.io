@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VITAFIT – Reset & Detox</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:var(--white)}
+
+  /* NAV */
+  nav{background:var(--green-dark);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+  .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-logo-icon{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
+  .nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}
+  .nav-logo-sub{display:block;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;font-weight:300}
+  .nav-links{display:flex;gap:8px;list-style:none}
+  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:600;padding:7px 18px;border-radius:6px;border:1.5px solid transparent;transition:all .2s}
+  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+  .nav-links a.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-phone{color:var(--white);font-size:14px;font-weight:600;text-decoration:none}
+  .nav-phone:hover{color:var(--gold-light)}
+  .btn-contact{background:var(--gold);color:var(--green-dark);border:none;border-radius:6px;padding:9px 22px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s;font-family:'Nunito',sans-serif}
+  .btn-contact:hover{background:var(--gold-light)}
+
+  /* HERO DETAIL */
+  .detail-hero{background:var(--green-dark);padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px}
+  .detail-hero-img{border-radius:50%;width:280px;height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:80px;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+  .detail-hero-badge{display:inline-block;background:var(--gold);color:var(--green-dark);font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+  .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
+  .detail-hero-desc{color:rgba(255,255,255,.78);font-size:14px;line-height:1.7;margin-bottom:24px;max-width:520px}
+  .btn-order{display:inline-block;background:var(--gold);color:var(--green-dark);padding:13px 30px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:background .2s,transform .15s}
+  .btn-order:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+  /* QUOTE */
+  .quote-section{background:var(--white);padding:32px 40px;text-align:center;border-bottom:1px solid #eee}
+  .quote-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--text-mid);font-style:italic}
+
+  /* BENEFITS */
+  .benefits-detail{background:var(--off-white);padding:60px 60px}
+  .benefits-detail h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
+  .benefits-detail .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:40px}
+  .benefits-inner{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+  .benefit-list{display:flex;flex-direction:column;gap:24px}
+  .benefit-item{display:flex;gap:16px;align-items:flex-start}
+  .benefit-icon{width:40px;height:40px;border-radius:10px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+  .benefit-item h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px}
+  .benefit-item p{font-size:13px;color:var(--text-mid);line-height:1.6}
+  .benefit-side-img{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#c8e0c8,#7aab7a);height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
+
+  /* GALLERY */
+  .gallery-section{background:var(--green-dark);padding:60px 60px}
+  .gallery-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:6px;text-align:center}
+  .gallery-section .subtitle{text-align:center;color:rgba(255,255,255,.7);font-size:14px;margin-bottom:36px}
+  .gallery-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;grid-template-rows:200px 200px;gap:12px;max-width:900px;margin:0 auto}
+  .gallery-item{border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:44px;transition:transform .2s}
+  .gallery-item:hover{transform:scale(1.02)}
+  .gallery-item.tall{grid-row:span 2}
+
+  /* REVIEWS */
+  .reviews-section{background:var(--off-white);padding:60px 60px}
+  .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
+  .reviews-section .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:36px}
+  .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+  .review-card{background:var(--white);border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+  .review-stars{color:var(--gold);font-size:15px;margin-bottom:10px}
+  .review-text{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+  .review-author{display:flex;align-items:center;gap:10px}
+  .review-avatar{width:38px;height:38px;border-radius:50%;background:var(--green-mid);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:16px}
+  .review-name{font-weight:700;font-size:13px;color:var(--text-dark)}
+  .review-sub{font-size:11px;color:var(--text-light)}
+
+  /* OTHER PROGRAMS */
+  .other-section{background:var(--white);padding:60px 60px}
+  .other-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);margin-bottom:28px;text-align:center}
+  .other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto}
+  .other-card{background:var(--off-white);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block}
+  .other-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+  .other-card-img{height:100px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:32px}
+  .other-card-body{padding:12px}
+  .other-card-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px}
+  .other-card-price{font-size:12px;color:var(--green-dark);font-weight:600}
+
+  /* FOOTER */
+  footer{background:var(--green-dark);padding:40px}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .footer-logo-icon{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
+  .footer-logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:2px}
+  .footer-nav{display:flex;gap:28px}
+  .footer-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:color .2s}
+  .footer-nav a:hover{color:var(--gold-light)}
+  .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between}
+  .footer-copy,.footer-dev{color:rgba(255,255,255,.4);font-size:12px}
+
+  @media(max-width:900px){
+    nav{padding:0 16px}.nav-links{display:none}
+    .detail-hero{grid-template-columns:1fr;padding:40px 20px;text-align:center}
+    .detail-hero-img{margin:0 auto;width:200px;height:200px}
+    .benefits-inner{grid-template-columns:1fr}.benefit-side-img{display:none}
+    .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gallery-item.tall{grid-row:span 1}
+    .reviews-grid{grid-template-columns:1fr}
+    .other-grid{grid-template-columns:repeat(2,1fr)}
+    .benefits-detail,.gallery-section,.reviews-section,.other-section{padding:40px 20px}
+  }
+
+  /* ORDER MODAL */
+  .order-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;align-items:center;justify-content:center;padding:20px}
+  .order-overlay.open{display:flex}
+  .order-modal{background:var(--white);border-radius:16px;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:orderIn .25s ease;max-height:90vh;overflow-y:auto}
+  @keyframes orderIn{from{opacity:0;transform:scale(.95) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .order-modal-head{padding:24px 24px 0;display:flex;justify-content:flex-end}
+  .order-modal-close{background:var(--gold);color:var(--white);border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:background .2s;line-height:1}
+  .order-modal-close:hover{background:var(--gold-light)}
+  .order-modal-body{padding:8px 28px 28px}
+  .omg{margin-bottom:14px}
+  .omg label{display:block;font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:6px;letter-spacing:.2px}
+  .omg input,.omg select,.omg textarea{width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:13px;font-family:'Nunito',sans-serif;background:var(--white);color:var(--text-dark);outline:none;transition:border-color .2s,box-shadow .2s}
+  .omg input:focus,.omg select:focus,.omg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+  .omg input::placeholder,.omg textarea::placeholder{color:#bbb}
+  .omg select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .om-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+  .om-phone{display:grid;grid-template-columns:90px 1fr;gap:8px}
+  .omg textarea{resize:none;min-height:80px}
+  .btn-om-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--green-dark);border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;width:100%;margin-top:6px;transition:opacity .2s,transform .15s;letter-spacing:.3px}
+  .btn-om-submit:hover{opacity:.9;transform:translateY(-1px)}
+
+  /* FIX: intl-tel-input overlap */
+  .iti { width: 100% !important; }
+  .iti__flag-container { position: absolute !important; }
+  .iti input[type=tel], .iti input[type=text] {
+    padding-left: 90px !important;
+    width: 100% !important;
+  }
+  .phone-iti-wrap { width: 100%; }
+
+  /* GOLDEN BUTTONS */
+  .btn-primary, .btn-order, .btn-cta-submit, .btn-om-submit,
+  .btn-fill, .btn-sm, .btn-contact, .btn-modal-order {
+    background: linear-gradient(135deg, #c9a84c 0%, #e2c47a 50%, #c9a84c 100%) !important;
+    background-size: 200% auto !important;
+    color: #2d4a2d !important;
+    border: none !important;
+    border-radius: 30px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px;
+    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(201,168,76,0.35) !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover, .btn-order:hover, .btn-cta-submit:hover, .btn-om-submit:hover,
+  .btn-fill:hover, .btn-sm:hover, .btn-contact:hover, .btn-modal-order:hover {
+    background-position: right center !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 6px 22px rgba(201,168,76,0.55) !important;
+    color: #1a2e1a !important;
+  }
+  .btn-primary:active, .btn-order:active, .btn-cta-submit:active, .btn-om-submit:active,
+  .btn-fill:active, .btn-sm:active, .btn-contact:active {
+    transform: translateY(0) scale(0.99) !important;
+    box-shadow: 0 2px 8px rgba(201,168,76,0.3) !important;
+  }
+  /* Outline buttons stay as-is */
+  .btn-outline {
+    background: transparent !important;
+    color: var(--green-dark) !important;
+    border: 2px solid var(--green-mid) !important;
+    border-radius: 30px !important;
+    box-shadow: none !important;
+    transition: all 0.2s !important;
+  }
+  .btn-outline:hover {
+    background: var(--green-dark) !important;
+    color: white !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(45,74,45,0.25) !important;
+  }
+
+
+  /* Remove grey background from phone flag area */
+  .iti__flag-container{background:transparent!important}
+  .iti__selected-flag{background:transparent!important;border-radius:8px 0 0 8px!important}
+  .iti__selected-flag:hover,.iti__selected-flag:focus{background:rgba(0,0,0,.04)!important}
+  .iti--separate-dial-code .iti__selected-flag{background:rgba(0,0,0,.03)!important;border-right:1px solid #e2e2e2!important}
+  .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(0,0,0,.06)!important}
+  /* Dark bg forms (modal, cta) */
+  .order-modal .iti--separate-dial-code .iti__selected-flag,
+  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag{background:rgba(255,255,255,.08)!important;border-right:1px solid rgba(255,255,255,.15)!important}
+  .order-modal .iti--separate-dial-code .iti__selected-flag:hover,
+  .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(255,255,255,.15)!important}
+
+
+  /* LANG SWITCHER */
+  .lang-switcher{display:flex;gap:4px;margin-left:16px}
+  .lang-btn{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;letter-spacing:.5px}
+  .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.5)}
+  .lang-btn.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
+</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+  <style>
+    .iti{width:100%}
+    .iti__flag-container{z-index:10}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">VF</div>
+    <div><span class="nav-logo-text">VITAFIT</span><span class="nav-logo-sub">nutrition</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Главная</a></li>
+    <li><a href="programs.html" class="active" data-i18n="nav_programs">Программы</a></li>
+    <li><a href="contacts.html" data-i18n="nav_contacts">Контакты</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:+37300000000">+373 00 000 000</a>
+    <a class="btn-contact" href="contacts.html" data-i18n="nav_connect">Связаться</a>
+  </div>
+
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="ru" onclick="applyLang('ru')">RU</button>
+    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
+    <button class="lang-btn" data-lang="ro" onclick="applyLang('ro')">RO</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="detail-hero">
+  <div class="detail-hero-img">🥦</div>
+  <div>
+    <div class="detail-hero-badge">Минимум 2 дн.</div>
+    <h1 class="detail-hero-title">Reset & Detox</h1>
+    <p class="detail-hero-desc">Reset & Detox обеспечивает мягкий перезапуск организма без строгих ограничений. Блюда включают овощи, лёгкий белок и ингредиенты с детокс-эффектом, поддерживающие дренаж, пищеварение и сияние кожи. Программа снижает воспаление и задерживает воду, давая ощущение лёгкости и стабильной энергии. Идеально для начала любого этапа как подготовки к здоровому образу жизни. Подходит тем, кто чувствует тело перегруженным или усталым, и хочет ясности ума.</p>
+    <a class="btn-order" href="#" onclick="openOrderModal('Reset & Detox');return false;" data-i18n="btn_order">Заказать программу</a>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="quote-text">«Иногда телу нужна лишь небольшая пауза, чтобы работать лучше»</p>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits-detail">
+  <h2>Преимущества программы</h2>
+  <p class="subtitle">Reset & Detox — для тех, кто хочет чистого старта и лёгкости в теле.</p>
+  <div class="benefits-inner">
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <div class="benefit-icon">🌿</div>
+        <div>
+          <h4>Снижение воспаления</h4>
+          <p>Эта программа помогает организму избавиться от внутренних источников воспаления. Ингредиенты чистые и легко усваиваемые телом. Выбранные антиоксиданты способствуют улучшению пищеварительной системы, уменьшают вздутие, чувство жжения и сохраняют ткани. Через несколько дней организм отмечает более стабильной энергией и общим улучшением состояния.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚖️</div>
+        <div>
+          <h4>Более лёгкое и стабильное пищеварение</h4>
+          <p>Блюда разработаны так, чтобы поддерживать пищеварительный тракт без перегрузки. Клетчатка, гибкие текстуры и правильные сочетания позволяют организму эффективно усваивать питательные вещества. Результат — более стабильное и регулярное пищеварение и заметное уменьшение вздутия.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">✨</div>
+        <div>
+          <h4>Более чистая кожа и улучшение тонуса</h4>
+          <p>Благодаря уменьшению токсинов и внутренних воспалений кожа со временем становится более чистой и сияющей. Организм приоритизирует лучший тонус, а сокращение жидкости уменьшает задержку жидкости. Это исключительно следствие чистого и правильно сбалансированного питания.</p>
+        </div>
+      </div>
+    </div>
+    <div class="benefit-side-img">🥤</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <h2>Галерея</h2>
+  <p class="subtitle">Откройте для себя кадры, созданные с теплом, которые рассказывают нашу историю без слов.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item">🥗</div>
+    <div class="gallery-item tall">🌿</div>
+    <div class="gallery-item">📦</div>
+    <div class="gallery-item">🥤</div>
+    <div class="gallery-item">🍱</div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <h2>Отзывы</h2>
+  <p class="subtitle">Узнай, как наши программы помогли людям изменить свой образ жизни.</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">После первых трёх дней программы я почувствовала невероятную лёгкость. Ушла отёчность, улучшился сон. Это именно то, что мне было нужно для перезапуска!</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Анна М.</div><div class="review-sub">Reset & Detox, 7 дней</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Начал с Reset & Detox после долгого периода неправильного питания. Уже через 4 дня кожа стала чище, а живот перестал беспокоить. Отличный старт!</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Дмитрий К.</div><div class="review-sub">Reset & Detox, 5 дней</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROGRAMS -->
+<section class="other-section">
+  <h2>Другие программы</h2>
+  <div class="other-grid">
+    <a class="other-card" href="program-slim.html">
+      <div class="other-card-img">🥗</div>
+      <div class="other-card-body"><div class="other-card-name">Slim Sculpt</div><div class="other-card-price">от 410 леев/день</div></div>
+    </a>
+    <a class="other-card" href="program-balance.html">
+      <div class="other-card-img">🍱</div>
+      <div class="other-card-body"><div class="other-card-name">Balance Daily</div><div class="other-card-price">от 480 леев/день</div></div>
+    </a>
+    <a class="other-card" href="program-energy.html">
+      <div class="other-card-img">⚡</div>
+      <div class="other-card-body"><div class="other-card-name">Energy Plus</div><div class="other-card-price">от 540 леев/день</div></div>
+    </a>
+    <a class="other-card" href="program-personal.html">
+      <div class="other-card-img">⭐</div>
+      <div class="other-card-body"><div class="other-card-name">Personal Plan</div><div class="other-card-price">от 600 леев/день</div></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-logo" href="index.html">
+      <div class="footer-logo-icon">VF</div>
+      <div><div class="footer-logo-text">VITAFIT</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
+    </a>
+    <nav class="footer-nav">
+      <a href="index.html">Главная</a>
+      <a href="programs.html">Программы</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy" data-i18n="footer_copy">© 2026 Vitafit. Все права защищены.</span>
+    <span class="footer-dev" data-i18n="footer_dev">Разработано компанией WebStudio</span>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="order-overlay" id="orderOverlay" onclick="closeOrderModal(event)">
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-head">
+      <button class="order-modal-close" onclick="closeOrderDirect()">✕</button>
+    </div>
+    <div class="order-modal-body">
+      <div class="omg">
+        <label data-i18n="f_name">Имя и Фамилия</label>
+        <input type="text" placeholder="Имя и Фамилия" data-i18n="f_name_ph">
+      </div>
+      <div class="om-row">
+        <div class="omg" style="margin-bottom:0">
+          <label data-i18n="f_phone">Номер телефона</label>
+          <div class="phone-iti-wrap"><input type="tel" class="phone-iti" placeholder="Номер телефона"></div>
+        </div>
+        <div class="omg" style="margin-bottom:0">
+          <label>Адрес</label>
+          <input type="text" placeholder="Пример ул. 123">
+        </div>
+      </div>
+      <div class="omg" style="margin-top:14px">
+        <label>Желаемая программа</label>
+        <select id="orderProgram">
+          <option value="" data-i18n="f_program_ph">Желаемая программа</option>
+          <option>Reset &amp; Detox</option>
+          <option>Slim Sculpt</option>
+          <option>Balance Daily</option>
+          <option>Energy Plus</option>
+          <option>Personal Plan</option>
+        </select>
+      </div>
+      <div class="om-row">
+        <div class="omg" style="margin-bottom:0">
+          <label>Предпочтительные дни</label>
+          <select>
+            <option value="" data-i18n="f_days_ph">Предпочтительные дни</option>
+            <option>Будние дни</option>
+            <option>Выходные</option>
+            <option>Каждый день</option>
+          </select>
+        </div>
+        <div class="omg" style="margin-bottom:0">
+          <label>Продолжительность</label>
+          <select>
+            <option value="" data-i18n="f_duration_ph">Продолжительность</option>
+            <option>2 дня</option>
+            <option>1 неделя</option>
+            <option>2 недели</option>
+            <option>1 месяц</option>
+          </select>
+        </div>
+      </div>
+      <div class="omg" style="margin-top:14px">
+        <label>Комментарий</label>
+        <textarea placeholder="Напишите ваш комментарий здесь..." data-i18n="f_message_ph"></textarea>
+      </div>
+      <button class="btn-om-submit" data-i18n="f_submit">Отправить сообщение</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openOrderModal(programName) {
+  if (programName) {
+    var sel = document.getElementById('orderProgram');
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text.includes(programName)) { sel.selectedIndex = i; break; }
+    }
+  }
+  document.getElementById('orderOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOrderDirect() {
+  document.getElementById('orderOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOrderModal(e) {
+  if (e.target === document.getElementById('orderOverlay')) closeOrderDirect();
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeOrderDirect(); });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.phone-iti').forEach(function(el){
+        intlTelInput(el, {
+          initialCountry: 'md',
+          preferredCountries: ['md', 'ro', 'ru', 'ua'],
+          separateDialCode: true,
+          utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
+        });
+      });
+    });
+  </script>
+  <script src="lang.js"></script>
+</body>
+</html>
