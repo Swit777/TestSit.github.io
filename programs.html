@@ -2,29 +2,62 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>
+// Anti-flash: hide body immediately, apply lang before paint
+(function(){
+  var l=localStorage.getItem('vitafit_lang')||'ru';
+  document.documentElement.setAttribute('data-lang-loading',l);
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VITAFIT – Программы</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:var(--white)}
-  nav{background:var(--green-dark);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
-  .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .nav-logo-icon{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
-  .nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}
-  .nav-logo-sub{display:block;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;font-weight:300}
-  .nav-links{display:flex;gap:8px;list-style:none}
-  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:600;padding:7px 18px;border-radius:6px;border:1.5px solid transparent;transition:all .2s;letter-spacing:.3px}
-  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
-  .nav-links a.active{color:var(--green-dark);background:linear-gradient(135deg,#c9a84c,#e2c47a);border-color:var(--gold);box-shadow:0 4px 12px rgba(201,168,76,.35)}
-  .nav-right{display:flex;align-items:center;gap:16px}
-  .nav-phone{color:var(--white);font-size:14px;font-weight:600;text-decoration:none}
-  .nav-phone:hover{color:var(--gold-light)}
-  .btn-contact{background:var(--gold);color:var(--green-dark);border:none;border-radius:6px;padding:9px 22px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s;font-family:'Nunito',sans-serif}
-  .btn-contact:hover{background:var(--gold-light)}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
+      /* ── NAV ─────────────────────────────────────────────────── */
+  .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
+  nav{background:#2a4228;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
+  .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
+  .nav-logo-icon{display:none!important}
+  .nav-logo-text{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:3px}
+  .nav-logo-sub{font-size:9px;color:rgba(255,255,255,.45);letter-spacing:3px;font-weight:300;margin-top:2px}
+  .nav-links{display:flex;gap:4px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;padding:8px 20px;border-radius:6px;transition:color .2s;letter-spacing:.2px;background:transparent!important;border:none!important;box-shadow:none!important}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)!important}
+  .nav-links a.active{color:#fff;font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
+  .nav-phone::before{content:'📞';font-size:13px}
+  .nav-phone:hover{color:#e2c47a}
+  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1a2e1a!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
+  .lang-switcher{position:relative;margin-left:4px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
+  .lang-trigger:hover{color:#fff}
+  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.08);color:#fff}
+  .lang-option.active{color:#fff;font-weight:800}
+  /* ─────────────────────────────────────────────────────── */
+  /* LANG SWITCHER */
+  .lang-switcher{position:relative;margin-left:4px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
+  .lang-trigger:hover{color:var(--white)}
+  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
+  .lang-option.active{color:var(--white);font-weight:800}
   /* PAGE HERO */
-  .page-hero{background:var(--green-dark);padding:60px 40px;text-align:center}
+  .page-hero{background:transparent;padding:60px 40px;text-align:center}
   .page-hero h1{font-family:'Playfair Display',serif;font-size:38px;color:var(--white);font-weight:700;margin-bottom:14px}
   .page-hero p{color:rgba(255,255,255,.75);font-size:16px;max-width:500px;margin:0 auto}
   /* PROGRAMS LIST */
@@ -155,11 +188,28 @@
   .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(255,255,255,.15)!important}
 
 
-  /* LANG SWITCHER */
-  .lang-switcher{display:flex;gap:4px;margin-left:16px}
-  .lang-btn{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;letter-spacing:.5px}
-  .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.5)}
-  .lang-btn.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
+    /* LANG SWITCHER — dropdown */
+  .lang-switcher{position:relative;margin-left:16px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;transition:all .2s}
+  .lang-trigger:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45)}
+  .lang-trigger .lang-arrow{font-size:9px;opacity:.7;transition:transform .2s;margin-left:2px}
+  .lang-switcher.open .lang-trigger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--green-dark);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;min-width:70px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
+  .lang-option.active{color:var(--green-dark);background:var(--gold)}
+
+  /* SECTION CONTAINERS */
+  /* SECTION CONTAINERS */
+  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:1200px;width:calc(100% - 48px)}
+  .sc:first-of-type{margin-top:32px}
+  .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+  .sc-green{background:#3a5c38}
+  .sc-offwhite{background:var(--off-white);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  .sc-dark{background:var(--green-dark);box-shadow:0 4px 24px rgba(0,0,0,.14)}
+  @media(max-width:900px){.sc{width:calc(100% - 24px)}}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
   <style>
@@ -169,10 +219,10 @@
 </head>
 <body>
 
-<nav>
+<div class="nav-outer"><nav>
   <a class="nav-logo" href="index.html">
-    <div class="nav-logo-icon">VF</div>
-    <div><span class="nav-logo-text">VITAFIT</span><span class="nav-logo-sub">nutrition</span></div>
+    <span class="nav-logo-text">VITAFIT</span>
+    <span class="nav-logo-sub">« healthy food »</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" data-i18n="nav_home">Главная</a></li>
@@ -182,33 +232,39 @@
   <div class="nav-right">
     <a class="nav-phone" href="tel:+37300000000">+373 00 000 000</a>
     <a class="btn-contact" href="contacts.html" data-i18n="nav_connect">Связаться</a>
+    <div class="lang-switcher">
+      <button class="lang-trigger">
+        <span class="lang-current">RU</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="ru">RU</button>
+        <button class="lang-option" data-lang="ro">RO</button>
+        <button class="lang-option" data-lang="en">EN</button>
+      </div>
+    </div>
   </div>
+</nav></div>
 
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="ru" onclick="applyLang('ru')">RU</button>
-    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
-    <button class="lang-btn" data-lang="ro" onclick="applyLang('ro')">RO</button>
-  </div>
-</nav>
-
-<div class="page-hero">
+<div class="sc sc-dark"><div class="page-hero" style="border-radius:0">
   <h1 data-i18n="prog_page_title">Выбери подходящую программу для себя</h1>
   <p data-i18n="prog_page_sub">Продолжительность и интенсивность программы зависят от твоей цели: похудения, баланса или повышения физической формы.</p>
-</div>
+</div></div>
 
+<div class="sc sc-white">
 <div class="section-label"><h3 data-i18n="prog_page_label">Программы</h3></div>
 
 <div class="programs-list">
 
   <div class="prog-row">
-    <div class="prog-row-img">🥦<div class="prog-min-badge">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">🥦<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Reset &amp; Detox</h3>
-      <p>Reset &amp; Detox обеспечивает мягкий перезапуск организма без строгих ограничений. Блюда включают овощи, лёгкий белок и ингредиенты с детокс-эффектом, поддерживающие дренаж, пищеварение и сияние кожи. Программа снижает воспаление, давая ощущение лёгкости и стабильной энергии.</p>
+      <p data-i18n="pp_reset_desc">Reset &amp; Detox обеспечивает мягкий перезапуск организма без строгих ограничений. Блюда включают овощи, лёгкий белок и ингредиенты с детокс-эффектом, поддерживающие дренаж, пищеварение и сияние кожи. Программа снижает воспаление, давая ощущение лёгкости и стабильной энергии.</p>
       <ul class="prog-features">
-        <li>Снижение воспаления</li>
-        <li>Более лёгкое и стабильное пищеварение</li>
-        <li>Мягкая чистка улучшает тонус</li>
+        <li data-i18n="pp_reset_li1">Снижение воспаления</li>
+        <li data-i18n="pp_reset_li2">Более лёгкое и стабильное пищеварение</li>
+        <li data-i18n="pp_reset_li3">Мягкая чистка улучшает тонус</li>
       </ul>
       <div class="prog-row-actions">
         <a class="btn-outline" href="program-reset.html" data-i18n="btn_view">Посмотреть детали</a>
@@ -220,28 +276,28 @@
   <div class="prog-row reverse">
     <div class="prog-row-body">
       <h3>Slim Sculpt</h3>
-      <p>Slim Sculpt поддерживает здоровое похудение и моделирование фигуры без голода. Сбалансированные блюда содержат нежирный белок, чистые углеводы и клетчатку для постепенного снижения жира. Программа стабилизирует уровень сахара и снижает аппетит, помогая иметь более плоский живот и постоянную энергию.</p>
+      <p data-i18n="pp_slim_desc">Slim Sculpt поддерживает здоровое похудение и моделирование фигуры без голода. Сбалансированные блюда содержат нежирный белок, чистые углеводы и клетчатку для постепенного снижения жира. Программа стабилизирует уровень сахара и снижает аппетит, помогая иметь более плоский живот и постоянную энергию.</p>
       <ul class="prog-features">
-        <li>Таяние лишних килограммов</li>
-        <li>Улучшение пищеварения и стабильная энергия</li>
+        <li data-i18n="pp_slim_li1">Таяние лишних килограммов</li>
+        <li data-i18n="pp_slim_li2">Улучшение пищеварения и стабильная энергия</li>
       </ul>
       <div class="prog-row-actions">
         <a class="btn-outline" href="program-slim.html" data-i18n="btn_view">Посмотреть детали</a>
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img">🥗<div class="prog-min-badge">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">🥗<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img">🍱<div class="prog-min-badge">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">🍱<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Balance Daily</h3>
-      <p>Balance Daily идеально подходит для поддержания веса и полноценного сбалансированного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение и стабилизирует колебания сахара.</p>
+      <p data-i18n="pp_balance_desc">Balance Daily идеально подходит для поддержания веса и полноценного сбалансированного питания. Сытные и разнообразные блюда обеспечивают стабильную энергию в течение дня и снижают тягу к еде. Программа поддерживает пищеварение и стабилизирует колебания сахара.</p>
       <ul class="prog-features">
-        <li>Постоянная энергия в течение дня</li>
-        <li>Разнообразное и полноценное питание</li>
-        <li>Без тяги к сладкому и колебаний сахара</li>
+        <li data-i18n="pp_balance_li1">Постоянная энергия в течение дня</li>
+        <li data-i18n="pp_balance_li2">Разнообразное и полноценное питание</li>
+        <li data-i18n="pp_balance_li3">Без тяги к сладкому и колебаний сахара</li>
       </ul>
       <div class="prog-row-actions">
         <a class="btn-outline" href="program-balance.html" data-i18n="btn_view">Посмотреть детали</a>
@@ -253,28 +309,28 @@
   <div class="prog-row reverse">
     <div class="prog-row-body">
       <h3>Energy Plus</h3>
-      <p>Energy Plus предназначена для активных людей, спортсменов и тех, кому нужны сытные и питательные блюда. Сложные углеводы, качественные белки и полезные жиры обеспечивают максимальную выносливость и мышечную массу. Программа поддерживает метаболизм и производительность в течение дня.</p>
+      <p data-i18n="pp_energy_desc">Energy Plus предназначена для активных людей, спортсменов и тех, кому нужны сытные и питательные блюда. Сложные углеводы, качественные белки и полезные жиры обеспечивают максимальную выносливость и мышечную массу. Программа поддерживает метаболизм и производительность в течение дня.</p>
       <ul class="prog-features">
-        <li>Высокая энергия и выносливость</li>
-        <li>Оптимальное восстановление после тренировок</li>
+        <li data-i18n="pp_energy_li1">Высокая энергия и выносливость</li>
+        <li data-i18n="pp_energy_li2">Оптимальное восстановление после тренировок</li>
       </ul>
       <div class="prog-row-actions">
         <a class="btn-outline" href="program-energy.html" data-i18n="btn_view">Посмотреть детали</a>
         <a class="btn-fill" href="#" onclick="openOrderModal('');return false;" data-i18n="btn_order">Заказать программу</a>
       </div>
     </div>
-    <div class="prog-row-img">⚡<div class="prog-min-badge">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">⚡<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
   </div>
 
   <div class="prog-row">
-    <div class="prog-row-img">⭐<div class="prog-min-badge">Минимум 2 дн.</div></div>
+    <div class="prog-row-img">⭐<div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div></div>
     <div class="prog-row-body">
       <h3>Personal Plan</h3>
-      <p>Personal Plan создаётся индивидуально в соответствии с вашими целями и образом жизни. Программа начинается с анализа привычек питания и уровня активности, затем создаёт персонализированное решение. Каждый элемент, от калорий до комбинаций ингредиентов, адаптирован для поддержки вашего организма.</p>
+      <p data-i18n="pp_personal_desc">Personal Plan создаётся индивидуально в соответствии с вашими целями и образом жизни. Программа начинается с анализа привычек питания и уровня активности, затем создаёт персонализированное решение. Каждый элемент, от калорий до комбинаций ингредиентов, адаптирован для поддержки вашего организма.</p>
       <ul class="prog-features">
-        <li>Индивидуальный подбор продуктов и целей</li>
-        <li>Питание, созданное специально для вашего тела</li>
-        <li>Видимые и устойчивые изменения</li>
+        <li data-i18n="pp_personal_li1">Индивидуальный подбор продуктов и целей</li>
+        <li data-i18n="pp_personal_li2">Питание, созданное специально для вашего тела</li>
+        <li data-i18n="pp_personal_li3">Видимые и устойчивые изменения</li>
       </ul>
       <div class="prog-row-actions">
         <a class="btn-outline" href="program-personal.html" data-i18n="btn_view">Посмотреть детали</a>
@@ -284,6 +340,7 @@
   </div>
 
 </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -292,9 +349,9 @@
       <div><div class="footer-logo-text">VITAFIT</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
     </a>
     <nav class="footer-nav">
-      <a href="index.html">Главная</a>
-      <a href="programs.html">Программы</a>
-      <a href="contacts.html">Контакты</a>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="programs.html" data-i18n="nav_programs">Программы</a>
+      <a href="contacts.html" data-i18n="nav_contacts">Контакты</a>
     </nav>
   </div>
   <div class="footer-bottom">
@@ -311,23 +368,23 @@
     </div>
     <div class="order-modal-body">
       <div class="omg">
-        <label>Имя и Фамилия</label>
-        <input type="text" placeholder="Имя и Фамилия">
+        <label data-i18n="f_name">Имя и Фамилия</label>
+        <input type="text" placeholder="Имя и Фамилия" data-i18n="f_name_ph">
       </div>
       <div class="om-row">
         <div class="omg" style="margin-bottom:0">
-          <label>Номер телефона</label>
-          <div class="phone-iti-wrap"><input type="tel" class="phone-iti" placeholder="Номер телефона"></div>
+          <label data-i18n="f_phone">Номер телефона</label>
+          <div class="phone-iti-wrap"><input type="tel" class="phone-iti" placeholder="Номер телефона" data-i18n="f_phone" data-i18n-ph="1"></div>
         </div>
         <div class="omg" style="margin-bottom:0">
-          <label>Адрес</label>
-          <input type="text" placeholder="Пример ул. 123">
+          <label data-i18n="f_address">Адрес</label>
+          <input type="text" placeholder="Пример ул. 123" data-i18n="f_address_ph">
         </div>
       </div>
       <div class="omg" style="margin-top:14px">
-        <label>Желаемая программа</label>
+        <label data-i18n="f_program">Желаемая программа</label>
         <select id="orderProgram">
-          <option value="">Желаемая программа</option>
+          <option value="" data-i18n="f_program_ph">Желаемая программа</option>
           <option>Reset &amp; Detox</option>
           <option>Slim Sculpt</option>
           <option>Balance Daily</option>
@@ -337,18 +394,18 @@
       </div>
       <div class="om-row">
         <div class="omg" style="margin-bottom:0">
-          <label>Предпочтительные дни</label>
-          <select>
-            <option value="">Предпочтительные дни</option>
+          <label data-i18n="f_days">Предпочтительные дни</label>
+          <select data-i18n-opt="f_days_1,f_days_2,f_days_3">
+            <option value="" data-i18n="f_days_ph">Предпочтительные дни</option>
             <option>Будние дни</option>
             <option>Выходные</option>
             <option>Каждый день</option>
           </select>
         </div>
         <div class="omg" style="margin-bottom:0">
-          <label>Продолжительность</label>
-          <select>
-            <option value="">Продолжительность</option>
+          <label data-i18n="f_duration">Продолжительность</label>
+          <select data-i18n-opt="f_dur_1,f_dur_2,f_dur_3,f_dur_4">
+            <option value="" data-i18n="f_duration_ph">Продолжительность</option>
             <option>2 дня</option>
             <option>1 неделя</option>
             <option>2 недели</option>
@@ -357,10 +414,10 @@
         </div>
       </div>
       <div class="omg" style="margin-top:14px">
-        <label>Комментарий</label>
-        <textarea placeholder="Напишите ваш комментарий здесь..."></textarea>
+        <label data-i18n="f_message">Сообщение</label>
+        <textarea placeholder="Напишите ваш комментарий здесь..." data-i18n="f_message_ph"></textarea>
       </div>
-      <button class="btn-om-submit">Отправить сообщение</button>
+      <button class="btn-om-submit" data-i18n="f_submit">Отправить сообщение</button>
     </div>
   </div>
 </div>
@@ -399,6 +456,22 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeOrde
         });
       });
     });
+  // After ITI init, re-apply phone placeholders from lang
+  function applyPhonePlaceholders() {
+    const lang = localStorage.getItem('vitafit_lang') || 'ru';
+    if (typeof TRANSLATIONS === 'undefined') return;
+    const t = TRANSLATIONS[lang];
+    if (!t) return;
+    document.querySelectorAll('input[data-i18n-ph]').forEach(function(el) {
+      const key = el.dataset.i18n;
+      if (t[key]) {
+        el.placeholder = t[key];
+        el.setAttribute('placeholder', t[key]);
+      }
+    });
+  }
+  setTimeout(applyPhonePlaceholders, 600);
+
   </script>
   <script src="lang.js"></script>
 </body>

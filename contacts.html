@@ -2,6 +2,14 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>
+// Anti-flash: hide body immediately, apply lang before paint
+(function(){
+  var l=localStorage.getItem('vitafit_lang')||'ru';
+  document.documentElement.setAttribute('data-lang-loading',l);
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VITAFIT – Контакты</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -9,21 +17,35 @@
 <style>
   :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:var(--off-white)}
-  nav{background:var(--green-dark);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
-  .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .nav-logo-icon{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
-  .nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}
-  .nav-logo-sub{display:block;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;font-weight:300}
-  .nav-links{display:flex;gap:8px;list-style:none}
-  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:600;padding:7px 18px;border-radius:6px;border:1.5px solid transparent;transition:all .2s;letter-spacing:.3px}
-  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
-  .nav-links a.active{color:var(--green-dark);background:linear-gradient(135deg,#c9a84c,#e2c47a);border-color:var(--gold);box-shadow:0 4px 12px rgba(201,168,76,.35)}
-  .nav-right{display:flex;align-items:center;gap:16px}
-  .nav-phone{color:var(--white);font-size:14px;font-weight:600;text-decoration:none}
-  .nav-phone:hover{color:var(--gold-light)}
-  .btn-contact{background:linear-gradient(135deg,#c9a84c,#e2c47a);color:var(--green-dark);border:none;border-radius:30px;padding:9px 22px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif;box-shadow:0 4px 12px rgba(201,168,76,.35);transition:all .2s}
-  .btn-contact:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(201,168,76,.5)}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
+    /* ── NAV ─────────────────────────────────────────────────── */
+  .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
+  nav{background:#2a4228;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
+  .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
+  .nav-logo-icon{display:none!important}
+  .nav-logo-text{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:3px}
+  .nav-logo-sub{font-size:9px;color:rgba(255,255,255,.45);letter-spacing:3px;font-weight:300;margin-top:2px}
+  .nav-links{display:flex;gap:4px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;padding:8px 20px;border-radius:6px;transition:color .2s;letter-spacing:.2px;background:transparent!important;border:none!important;box-shadow:none!important}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)!important}
+  .nav-links a.active{color:#fff;font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
+  .nav-phone::before{content:'📞';font-size:13px}
+  .nav-phone:hover{color:#e2c47a}
+  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1a2e1a!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
+  .lang-switcher{position:relative;margin-left:4px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
+  .lang-trigger:hover{color:#fff}
+  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.08);color:#fff}
+  .lang-option.active{color:#fff;font-weight:800}
+  /* ─────────────────────────────────────────────────────── */
 
   /* PAGE */
   .contact-page{padding:60px 40px 80px;max-width:1060px;margin:0 auto}
@@ -174,19 +196,36 @@
   .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(255,255,255,.15)!important}
 
 
-  /* LANG SWITCHER */
-  .lang-switcher{display:flex;gap:4px;margin-left:16px}
-  .lang-btn{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;letter-spacing:.5px}
-  .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.5)}
-  .lang-btn.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
+    /* LANG SWITCHER — dropdown */
+  .lang-switcher{position:relative;margin-left:16px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;transition:all .2s}
+  .lang-trigger:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45)}
+  .lang-trigger .lang-arrow{font-size:9px;opacity:.7;transition:transform .2s;margin-left:2px}
+  .lang-switcher.open .lang-trigger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--green-dark);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;min-width:70px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
+  .lang-option.active{color:var(--green-dark);background:var(--gold)}
+
+  /* SECTION CONTAINERS */
+  /* SECTION CONTAINERS */
+  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:1200px;width:calc(100% - 48px)}
+  .sc:first-of-type{margin-top:32px}
+  .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+  .sc-green{background:#3a5c38}
+  .sc-offwhite{background:var(--off-white);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  .sc-dark{background:var(--green-dark);box-shadow:0 4px 24px rgba(0,0,0,.14)}
+  @media(max-width:900px){.sc{width:calc(100% - 24px)}}
 </style>
 </head>
 <body>
 
-<nav>
+<div class="nav-outer"><nav>
   <a class="nav-logo" href="index.html">
-    <div class="nav-logo-icon">VF</div>
-    <div><span class="nav-logo-text">VITAFIT</span><span class="nav-logo-sub">nutrition</span></div>
+    <span class="nav-logo-text">VITAFIT</span>
+    <span class="nav-logo-sub">« healthy food »</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" data-i18n="nav_home">Главная</a></li>
@@ -196,16 +235,21 @@
   <div class="nav-right">
     <a class="nav-phone" href="tel:+37300000000">+373 00 000 000</a>
     <a class="btn-contact" href="contacts.html" data-i18n="nav_connect">Связаться</a>
+    <div class="lang-switcher">
+      <button class="lang-trigger">
+        <span class="lang-current">RU</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="ru">RU</button>
+        <button class="lang-option" data-lang="ro">RO</button>
+        <button class="lang-option" data-lang="en">EN</button>
+      </div>
+    </div>
   </div>
+</nav></div>
 
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="ru" onclick="applyLang('ru')">RU</button>
-    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
-    <button class="lang-btn" data-lang="ro" onclick="applyLang('ro')">RO</button>
-  </div>
-</nav>
-
-<div class="contact-page">
+<div class="sc sc-white"><div class="contact-page" style="padding-top:40px;padding-bottom:40px">
   <div class="contact-wrap">
 
     <div class="contact-info-panel">
@@ -242,7 +286,7 @@
       <div class="form-row">
         <div class="fg">
           <label data-i18n="f_phone">Номер телефона</label>
-          <input type="tel" class="phone-iti" placeholder="Номер телефона">
+          <input type="tel" class="phone-iti" placeholder="Номер телефона" data-i18n="f_phone" data-i18n-ph="1">
         </div>
         <div class="fg">
           <label data-i18n="f_address">Адрес</label>
@@ -263,7 +307,7 @@
       <div class="form-row">
         <div class="fg">
           <label data-i18n="f_days">Предпочтительные дни</label>
-          <select>
+          <select data-i18n-opt="f_days_1,f_days_2,f_days_3">
             <option value="" data-i18n="f_days_ph">Предпочтительные дни</option>
             <option>Будние дни</option>
             <option>Выходные</option>
@@ -272,7 +316,7 @@
         </div>
         <div class="fg">
           <label data-i18n="f_duration">Продолжительность</label>
-          <select>
+          <select data-i18n-opt="f_dur_1,f_dur_2,f_dur_3,f_dur_4">
             <option value="" data-i18n="f_duration_ph">Продолжительность</option>
             <option>2 дня</option>
             <option>1 неделя</option>
@@ -289,7 +333,7 @@
     </div>
 
   </div>
-</div>
+</div></div>
 
 <footer>
   <div class="footer-inner">
@@ -298,9 +342,9 @@
       <div><div class="footer-logo-text">VITAFIT</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
     </a>
     <nav class="footer-nav">
-      <a href="index.html">Главная</a>
-      <a href="programs.html">Программы</a>
-      <a href="contacts.html">Контакты</a>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="programs.html" data-i18n="nav_programs">Программы</a>
+      <a href="contacts.html" data-i18n="nav_contacts">Контакты</a>
     </nav>
   </div>
   <div class="footer-bottom">
@@ -313,4 +357,30 @@
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   intlTelInput(document.querySelector('.phone-iti'), {
-    ini
+    initialCountry: 'md',
+    preferredCountries: ['md', 'ro', 'ru', 'ua'],
+    separateDialCode: true,
+    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
+  });
+});
+
+  // After ITI init, re-apply phone placeholders from lang
+  function applyPhonePlaceholders() {
+    const lang = localStorage.getItem('vitafit_lang') || 'ru';
+    if (typeof TRANSLATIONS === 'undefined') return;
+    const t = TRANSLATIONS[lang];
+    if (!t) return;
+    document.querySelectorAll('input[data-i18n-ph]').forEach(function(el) {
+      const key = el.dataset.i18n;
+      if (t[key]) {
+        el.placeholder = t[key];
+        el.setAttribute('placeholder', t[key]);
+      }
+    });
+  }
+  setTimeout(applyPhonePlaceholders, 600);
+
+</script>
+<script src="lang.js"></script>
+</body>
+</html>

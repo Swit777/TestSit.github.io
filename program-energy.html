@@ -2,32 +2,65 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>
+// Anti-flash: hide body immediately, apply lang before paint
+(function(){
+  var l=localStorage.getItem('vitafit_lang')||'ru';
+  document.documentElement.setAttribute('data-lang-loading',l);
+  document.write('<style id="anti-flash-style">body{visibility:hidden!important}</style>');
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VITAFIT – Energy Plus</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--green-dark:#2d4a2d;--green-mid:#3d6b3d;--green-light:#4e8b4e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1a2e1a;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:var(--white)}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
 
-  /* NAV */
-  nav{background:var(--green-dark);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
-  .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .nav-logo-icon{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
-  .nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}
-  .nav-logo-sub{display:block;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;font-weight:300}
-  .nav-links{display:flex;gap:8px;list-style:none}
-  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:600;padding:7px 18px;border-radius:6px;border:1.5px solid transparent;transition:all .2s}
-  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
-  .nav-links a.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
-  .nav-right{display:flex;align-items:center;gap:16px}
-  .nav-phone{color:var(--white);font-size:14px;font-weight:600;text-decoration:none}
-  .nav-phone:hover{color:var(--gold-light)}
-  .btn-contact{background:var(--gold);color:var(--green-dark);border:none;border-radius:6px;padding:9px 22px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s;font-family:'Nunito',sans-serif}
-  .btn-contact:hover{background:var(--gold-light)}
-
+      /* NAV */
+  .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
+    /* ── NAV ─────────────────────────────────────────────────── */
+  .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
+  nav{background:#2a4228;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
+  .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
+  .nav-logo-icon{display:none!important}
+  .nav-logo-text{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:3px}
+  .nav-logo-sub{font-size:9px;color:rgba(255,255,255,.45);letter-spacing:3px;font-weight:300;margin-top:2px}
+  .nav-links{display:flex;gap:4px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;padding:8px 20px;border-radius:6px;transition:color .2s;letter-spacing:.2px;background:transparent!important;border:none!important;box-shadow:none!important}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)!important}
+  .nav-links a.active{color:#fff;font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
+  .nav-phone::before{content:'📞';font-size:13px}
+  .nav-phone:hover{color:#e2c47a}
+  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1a2e1a!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
+  .lang-switcher{position:relative;margin-left:4px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
+  .lang-trigger:hover{color:#fff}
+  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.08);color:#fff}
+  .lang-option.active{color:#fff;font-weight:800}
+  /* ─────────────────────────────────────────────────────── */
+  /* LANG SWITCHER */
+  .lang-switcher{position:relative;margin-left:4px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
+  .lang-trigger:hover{color:var(--white)}
+  .lang-trigger .lang-arrow{font-size:8px;opacity:.6;transition:transform .2s}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#2a4228;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;min-width:60px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:8px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.65);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
+  .lang-option.active{color:var(--white);font-weight:800}
   /* HERO DETAIL */
-  .detail-hero{background:var(--green-dark);padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px}
+  .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px}
   .detail-hero-img{border-radius:50%;width:280px;height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;font-size:80px;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3)}
   .detail-hero-badge{display:inline-block;background:var(--gold);color:var(--green-dark);font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
   .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
@@ -36,11 +69,11 @@
   .btn-order:hover{background:var(--gold-light);transform:translateY(-2px)}
 
   /* QUOTE */
-  .quote-section{background:var(--white);padding:32px 40px;text-align:center;border-bottom:1px solid #eee}
+  .quote-section{background:transparent;padding:32px 40px;text-align:center;border-bottom:1px solid #eee}
   .quote-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--text-mid);font-style:italic}
 
   /* BENEFITS */
-  .benefits-detail{background:var(--off-white);padding:60px 60px}
+  .benefits-detail{background:transparent;padding:60px 60px}
   .benefits-detail h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
   .benefits-detail .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:40px}
   .benefits-inner{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
@@ -52,7 +85,7 @@
   .benefit-side-img{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#c8e0c8,#7aab7a);height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
 
   /* GALLERY */
-  .gallery-section{background:var(--green-dark);padding:60px 60px}
+  .gallery-section{background:transparent;padding:60px 60px}
   .gallery-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:6px;text-align:center}
   .gallery-section .subtitle{text-align:center;color:rgba(255,255,255,.7);font-size:14px;margin-bottom:36px}
   .gallery-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;grid-template-rows:200px 200px;gap:12px;max-width:900px;margin:0 auto}
@@ -61,7 +94,7 @@
   .gallery-item.tall{grid-row:span 2}
 
   /* REVIEWS */
-  .reviews-section{background:var(--off-white);padding:60px 60px}
+  .reviews-section{background:transparent;padding:60px 60px}
   .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
   .reviews-section .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:36px}
   .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
@@ -74,7 +107,7 @@
   .review-sub{font-size:11px;color:var(--text-light)}
 
   /* OTHER PROGRAMS */
-  .other-section{background:var(--white);padding:60px 60px}
+  .other-section{background:transparent;padding:60px 60px}
   .other-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);margin-bottom:28px;text-align:center}
   .other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto}
   .other-card{background:var(--off-white);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block}
@@ -195,11 +228,18 @@
   .cta-form-wrap .iti--separate-dial-code .iti__selected-flag:hover{background:rgba(255,255,255,.15)!important}
 
 
-  /* LANG SWITCHER */
-  .lang-switcher{display:flex;gap:4px;margin-left:16px}
-  .lang-btn{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;letter-spacing:.5px}
-  .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.5)}
-  .lang-btn.active{color:var(--green-dark);background:var(--gold);border-color:var(--gold)}
+    /* LANG SWITCHER — dropdown */
+  .lang-switcher{position:relative;margin-left:16px;user-select:none}
+  .lang-trigger{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;transition:all .2s}
+  .lang-trigger:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45)}
+  .lang-trigger .lang-arrow{font-size:9px;opacity:.7;transition:transform .2s;margin-left:2px}
+  .lang-switcher.open .lang-trigger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+  .lang-switcher.open .lang-arrow{transform:rotate(180deg)}
+  .lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--green-dark);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;min-width:70px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:200}
+  .lang-switcher.open .lang-dropdown{display:block}
+  .lang-option{display:block;width:100%;padding:9px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:transparent;border:none;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.5px;text-align:center;transition:all .15s}
+  .lang-option:hover{background:rgba(255,255,255,.1);color:var(--white)}
+  .lang-option.active{color:var(--green-dark);background:var(--gold)}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
   <style>
@@ -209,10 +249,10 @@
 </head>
 <body>
 
-<nav>
+<div class="nav-outer"><nav>
   <a class="nav-logo" href="index.html">
-    <div class="nav-logo-icon">VF</div>
-    <div><span class="nav-logo-text">VITAFIT</span><span class="nav-logo-sub">nutrition</span></div>
+    <span class="nav-logo-text">VITAFIT</span>
+    <span class="nav-logo-sub">« healthy food »</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" data-i18n="nav_home">Главная</a></li>
@@ -222,17 +262,22 @@
   <div class="nav-right">
     <a class="nav-phone" href="tel:+37300000000">+373 00 000 000</a>
     <a class="btn-contact" href="contacts.html" data-i18n="nav_connect">Связаться</a>
+    <div class="lang-switcher">
+      <button class="lang-trigger">
+        <span class="lang-current">RU</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="ru">RU</button>
+        <button class="lang-option" data-lang="ro">RO</button>
+        <button class="lang-option" data-lang="en">EN</button>
+      </div>
+    </div>
   </div>
-
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="ru" onclick="applyLang('ru')">RU</button>
-    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
-    <button class="lang-btn" data-lang="ro" onclick="applyLang('ro')">RO</button>
-  </div>
-</nav>
+</nav></div>
 
 <!-- HERO -->
-<section class="detail-hero">
+<div class="sc sc-dark"><section class="detail-hero">
   <div class="detail-hero-img">⚡</div>
   <div>
     <div class="detail-hero-badge">Минимум 2 дн.</div>
@@ -242,11 +287,13 @@
   </div>
 </section>
 
+<div class="sc sc-white">
 <!-- QUOTE -->
 <div class="quote-section">
   <p class="quote-text">«Твоё тело способно на большее, если кормить его правильно»</p>
-</div>
+</div></div>
 
+<div class="sc sc-offwhite">
 <!-- BENEFITS -->
 <section class="benefits-detail">
   <h2>Преимущества программы</h2>
@@ -277,8 +324,9 @@
     </div>
     <div class="benefit-side-img">🥤</div>
   </div>
-</section>
+</section></div>
 
+<div class="sc sc-dark">
 <!-- GALLERY -->
 <section class="gallery-section">
   <h2>Галерея</h2>
@@ -290,8 +338,9 @@
     <div class="gallery-item">🥤</div>
     <div class="gallery-item">🍱</div>
   </div>
-</section>
+</section></div>
 
+<div class="sc sc-offwhite">
 <!-- REVIEWS -->
 <section class="reviews-section">
   <h2>Отзывы</h2>
@@ -314,8 +363,9 @@
       </div>
     </div>
   </div>
-</section>
+</section></div>
 
+<div class="sc sc-white">
 <!-- OTHER PROGRAMS -->
 <section class="other-section">
   <h2>Другие программы</h2>
@@ -337,7 +387,7 @@
       <div class="other-card-body"><div class="other-card-name">Personal Plan</div><div class="other-card-price">от 600 леев/день</div></div>
     </a>
   </div>
-</section>
+</section></div>
 
 <footer>
   <div class="footer-inner">
@@ -346,9 +396,9 @@
       <div><div class="footer-logo-text">VITAFIT</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
     </a>
     <nav class="footer-nav">
-      <a href="index.html">Главная</a>
-      <a href="programs.html">Программы</a>
-      <a href="contacts.html">Контакты</a>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="programs.html" data-i18n="nav_programs">Программы</a>
+      <a href="contacts.html" data-i18n="nav_contacts">Контакты</a>
     </nav>
   </div>
   <div class="footer-bottom">
