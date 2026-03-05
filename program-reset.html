@@ -38,18 +38,24 @@
 
   /* Круглое фото героя на страницах программ */
   .detail-hero-img {
-    border-radius: 50%;
-    width: 360px; height: 360px;
-    min-width: 360px; min-height: 360px;
-        flex-shrink: 0;
-    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 360px;
+    height: 360px;
+    min-width: 360px;
+    min-height: 360px;
   }
   .detail-hero-img img, .detail-hero-img .site-img, .detail-hero-img .site-img-round {
-    width: 100%; height: 100%;
+    width: 360px;
+    height: 360px;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%; transform: scale(1.15);
-}
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    display: block;
+  }
 
   /* Галерея */
   .gallery-item {
@@ -236,7 +242,7 @@
   .lang-option.active{color:var(--white);font-weight:800}
   /* HERO DETAIL */
   .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px;max-width:1200px;margin:0 auto}
-  .detail-hero-img{border-radius:50%;width:280px;height:280px;min-width:280px;min-height:280px;background:linear-gradient(135deg,#4a7a3a,#2a5020);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.3);overflow:hidden}
+  .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:360px;height:360px;min-width:360px;min-height:360px}
   .detail-hero-badge{display:inline-block;background:var(--gold);color:var(--green-dark);font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
   .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
   .detail-hero-desc{color:rgba(255,255,255,.78);font-size:14px;line-height:1.7;margin-bottom:24px;max-width:520px}
@@ -307,7 +313,7 @@
   @media(max-width:900px){
     nav{padding:0 16px}.nav-links{display:none}
     .detail-hero{grid-template-columns:1fr;padding:40px 20px;text-align:center}
-    .detail-hero-img{margin:0 auto;width:200px;height:200px}
+    .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:360px;height:360px;min-width:360px;min-height:360px}
     .benefits-inner{grid-template-columns:1fr}.benefit-side-img{display:none}
     .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gallery-item.tall{grid-row:span 1}
     .reviews-grid{grid-template-columns:1fr}
@@ -462,7 +468,7 @@
 
 <!-- HERO -->
 <div class="sc sc-dark"><section class="detail-hero">
-  <div class="detail-hero-img" style="padding:0;overflow:hidden"><img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img-round" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div></div>
+  <div class="detail-hero-img" style="padding:0"><img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img-round" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div></div>
   <div>
     <div class="detail-hero-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
     <h1 class="detail-hero-title">Reset & Detox</h1>
@@ -506,7 +512,7 @@
         </div>
       </div>
     </div>
-    <div class="benefit-side-img" style="padding:0;overflow:hidden"><img src="images/cta-bottle.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>cta-bottle.jpg</p></div></div>
+    <div class="benefit-side-img" style="padding:0"><img src="images/cta-bottle.jpg" alt="" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>cta-bottle.jpg</p></div></div>
   </div>
 </section></div>
 
