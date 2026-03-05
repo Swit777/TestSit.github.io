@@ -28,7 +28,7 @@
       '<div class="mob-overlay" id="mobOverlay"></div>' +
       '<div class="mob-panel">' +
         '<div class="mob-header">' +
-          '<a href="index.html" class="mob-logo">VITAFIT<small>\u00ab healthy food \u00bb</small></a>' +
+          '<a href="index.html" class="mob-logo">Savur<small>\u00ab healthy food \u00bb</small></a>' +
           '<button class="mob-close" id="mobClose" aria-label="Close">&#x2715;</button>' +
         '</div>' +
 
@@ -180,4 +180,163 @@
   } else {
     init();
   }
+})();
+
+/* ════════════════════════════════════════════════
+   ПРОГРАММЫ — СЛАЙДЕР
+   ════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  function initSlider() {
+    var grid = document.querySelector('.programs-grid');
+    if (!grid) return;
+    if (window.innerWidth > 900) return;
+
+    var cards = Array.from(grid.querySelectorAll('.prog-card'));
+    if (cards.length < 2) return;
+
+    /* ── трек ── */
+    var wrap = document.createElement('div');
+    wrap.className = 'prog-slider-wrap';
+
+    var track = document.createElement('div');
+    track.className = 'prog-slider-track';
+
+    cards.forEach(function(card) { track.appendChild(card); });
+    wrap.appendChild(track);
+
+    /* ── контейнер с тенью вокруг слайда ── */
+    var sliderBox = document.createElement('div');
+    sliderBox.style.cssText = 'border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.22);';
+    sliderBox.appendChild(wrap);
+
+    /* ── нижняя панель: [‹]  [• • • • •]  [›] ── */
+    var navEl = document.createElement('div');
+    navEl.className = 'prog-slider-nav';
+
+    var btnPrev = document.createElement('button');
+    btnPrev.className = 'prog-slider-btn prog-slider-prev';
+    btnPrev.setAttribute('aria-label', 'Назад');
+    btnPrev.innerHTML = '&#8249;';
+
+    var dotsEl = document.createElement('div');
+    dotsEl.className = 'prog-slider-dots';
+
+    var btnNext = document.createElement('button');
+    btnNext.className = 'prog-slider-btn prog-slider-next';
+    btnNext.setAttribute('aria-label', 'Вперёд');
+    btnNext.innerHTML = '&#8250;';
+
+    navEl.appendChild(btnPrev);
+    navEl.appendChild(dotsEl);
+    navEl.appendChild(btnNext);
+
+    /* ── точки ── */
+    var dots = cards.map(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'prog-slider-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+      d.addEventListener('click', function() { goTo(i); });
+      dotsEl.appendChild(d);
+      return d;
+    });
+
+    /* ── вставляем в DOM ── */
+    grid.innerHTML = '';
+    grid.appendChild(sliderBox);
+    grid.appendChild(navEl);
+
+    /* ── состояние ── */
+    var current = 0;
+    var total   = cards.length;
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, total - 1));
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      btnPrev.classList.toggle('disabled', current === 0);
+      btnNext.classList.toggle('disabled', current === total - 1);
+    }
+
+    goTo(0);
+
+    btnPrev.addEventListener('click', function() { goTo(current - 1); });
+    btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+    /* ── Touch swipe ── */
+    var startX = 0, startY = 0, isDragging = false, isScrolling = null;
+
+    wrap.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging  = true;
+      isScrolling = null;
+    }, { passive: true });
+
+    wrap.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      var dx = e.touches[0].clientX - startX;
+      var dy = e.touches[0].clientY - startY;
+      if (isScrolling === null) { isScrolling = Math.abs(dy) > Math.abs(dx); }
+      if (!isScrolling) e.preventDefault();
+    }, { passive: false });
+
+    wrap.addEventListener('touchend', function(e) {
+      if (!isDragging || isScrolling) { isDragging = false; return; }
+      isDragging = false;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    /* ── Mouse drag (эмулятор) ── */
+    var mouseStart = 0, mouseDragging = false;
+    track.addEventListener('mousedown', function(e) {
+      mouseStart = e.clientX; mouseDragging = true;
+      track.style.transition = 'none';
+    });
+    window.addEventListener('mouseup', function(e) {
+      if (!mouseDragging) return;
+      mouseDragging = false;
+      track.style.transition = '';
+      var dx = e.clientX - mouseStart;
+      goTo(Math.abs(dx) > 40 ? (dx < 0 ? current + 1 : current - 1) : current);
+    });
+
+    /* ── resize ── */
+    window.addEventListener('resize', function() { goTo(current); }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+  } else {
+    setTimeout(initSlider, 120);
+  }
+})();
+
+/* ════════════════════════════════════════════════
+   PROGRAMS PAGE — подменяем .jpg → .png на мобиле
+   ════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  function swapProgImgsToPng() {
+    if (window.innerWidth > 900) return;
+
+    /* только картинки программ в .prog-row-img */
+    document.querySelectorAll('.prog-row-img .site-img').forEach(function (img) {
+      if (img.src && img.src.match(/prog-[^/]+\.jpg(\?.*)?$/i)) {
+        img.src = img.src.replace(/\.jpg(\?.*)?$/i, '.png');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', swapProgImgsToPng);
+  } else {
+    swapProgImgsToPng();
+  }
+
+  /* на случай resize (переворот, DevTools) */
+  window.addEventListener('resize', swapProgImgsToPng, { passive: true });
 })();
