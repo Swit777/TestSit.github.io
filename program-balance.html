@@ -23,7 +23,7 @@
   .site-img-round {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
   }
   .img-placeholder {
@@ -39,17 +39,17 @@
   /* Круглое фото героя на страницах программ */
   .detail-hero-img {
     border-radius: 50%;
-    width: 280px; height: 280px;
-    min-width: 280px; min-height: 280px;
-    overflow: hidden;
-    flex-shrink: 0;
+    width: 360px; height: 360px;
+    min-width: 360px; min-height: 360px;
+        flex-shrink: 0;
     box-shadow: 0 8px 32px rgba(0,0,0,.3);
   }
   .detail-hero-img img, .detail-hero-img .site-img, .detail-hero-img .site-img-round {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center top;
-  }
+    object-position: center;
+    border-radius: 50%; transform: scale(1.15);
+}
 
   /* Галерея */
   .gallery-item {
@@ -107,7 +107,7 @@
   .other-card-img-circle .site-img {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
   }
 
   /* CTA правая колонка */
@@ -131,7 +131,7 @@
   .hero-right .site-img {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
   }
 
   /* Карточки программ — круглое фото */
@@ -152,7 +152,7 @@
   .prog-card-img-circle .site-img {
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
   }
 
   /* How секция */
