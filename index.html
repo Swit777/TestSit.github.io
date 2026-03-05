@@ -107,23 +107,29 @@
 
   /* PROGRAMS */
   .programs-section{background:transparent;padding:60px 48px 70px}
-  .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1260px;margin:0 auto}
-  .prog-card{background:var(--white);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.9)}
+  .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1260px;margin:160px auto 0}
+  .prog-card{background:var(--white);border-radius:16px;overflow:visible;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.9)}
   .prog-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,.32)}
 
-  /* КАРТОЧКИ ПРОГРАММ — фиксированная высота, cover */
+  /* КАРТОЧКИ ПРОГРАММ */
   .prog-card-img {
-    height: 168px;
-    overflow: hidden;
+    height: 180px;
+    overflow: visible;
     position: relative;
     background: linear-gradient(160deg,#e8f5e0 0%,#c8e0b8 100%);
+    border-radius: 14px 14px 0 0;
     flex-shrink: 0;
   }
   .prog-card-img .site-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 130%;
+    height: auto;
+    max-height: 340px;
+    object-fit: contain;
+    object-position: center bottom;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .prog-badge{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--gold);color:#1a2e1a;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
@@ -408,7 +414,7 @@
   <div class="programs-grid">
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div>
+        <img src="images/prog-reset.png" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.png</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -425,7 +431,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div>
+        <img src="images/prog-slim.png" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.png</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -442,7 +448,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div>
+        <img src="images/prog-balance.png" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.png</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -459,7 +465,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div>
+        <img src="images/prog-energy.png" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.png</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
@@ -476,7 +482,7 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div>
+        <img src="images/prog-personal.png" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.png</p></div>
         <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
       </div>
       <div class="prog-card-body">
