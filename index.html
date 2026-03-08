@@ -16,7 +16,7 @@
 <style>
   :root{--green-dark:#406843;--green-mid:#4d7a50;--green-light:#6a9e6e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1e3320;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f5f3ee;padding-top:8px}
 
   /* ── УНИВЕРСАЛЬНЫЕ СТИЛИ ИЗОБРАЖЕНИЙ ── */
   .site-img {
@@ -59,7 +59,7 @@
   .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
   .nav-phone::before{content:'📞';font-size:13px}
   .nav-phone:hover{color:#e2c47a}
-  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1e3320!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact{background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%)!important;background-size:200% auto!important;color:#fff!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
   .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
 
   /* LANG SWITCHER */
@@ -132,7 +132,7 @@
     transform: translateX(-50%);
   }
 
-  .prog-badge{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--gold);color:#1e3320;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
+  .prog-badge{display:table;margin-left:auto;margin-right:-6px;margin-top:-20px;margin-bottom:8px;white-space:nowrap;background:var(--gold);color:#1e3320;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;position:relative;z-index:2}
   .prog-badge::before{content:'⏱';font-size:9px}
   .prog-card-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
   .prog-card-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:7px}
@@ -144,8 +144,8 @@
   .macro-icon{font-size:16px;margin-bottom:3px;display:block}
   .macro-label{font-size:9px;color:var(--text-light);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
   .macro-val{font-size:12px;font-weight:700;color:var(--text-dark);display:block}
-  .btn-sm{display:block;text-align:center;background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%);background-size:200% auto;color:#1e3320;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;transition:background-position .3s,box-shadow .2s;box-shadow:0 3px 10px rgba(201,168,76,.3)}
-  .btn-sm:hover{background-position:right center;box-shadow:0 5px 16px rgba(201,168,76,.5)}
+  .btn-sm{display:block;text-align:center;background:linear-gradient(135deg,#e8cc7a 0%,#f5e0a0 50%,#e8cc7a 100%);background-size:200% auto;color:#fff;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;transition:background-position .3s,box-shadow .2s;box-shadow:0 3px 10px rgba(201,168,76,.25)}
+  .btn-sm:hover{background-position:right center;box-shadow:0 5px 16px rgba(201,168,76,.45);color:#4a3008}
 
   /* HOW */
   .how-section{background:var(--green-dark);padding:70px 40px}
@@ -415,10 +415,9 @@
   <div class="programs-grid">
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-reset.png" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.png</p></div>
-        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
-      </div>
+        <img src="images/prog-reset.png" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.png</p></div></div>
       <div class="prog-card-body">
+        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
         <div class="prog-card-name">Reset &amp; Detox</div>
         <div class="prog-card-desc" data-i18n="prog_reset_desc">Лёгкая противовоспалительная программа для мягкого перезапуска организма.</div>
         <div class="prog-card-price">От 350 <span data-i18n="prog_per_day">леев/день</span></div>
@@ -432,10 +431,9 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-slim.png" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.png</p></div>
-        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
-      </div>
+        <img src="images/prog-slim.png" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.png</p></div></div>
       <div class="prog-card-body">
+        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
         <div class="prog-card-name">Slim Sculpt</div>
         <div class="prog-card-desc" data-i18n="prog_slim_desc">Программа для здорового снижения веса с поддерживающими блюдами.</div>
         <div class="prog-card-price">От 410 <span data-i18n="prog_per_day">леев/день</span></div>
@@ -449,10 +447,9 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-balance.png" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.png</p></div>
-        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
-      </div>
+        <img src="images/prog-balance.png" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.png</p></div></div>
       <div class="prog-card-body">
+        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
         <div class="prog-card-name">Balance Daily</div>
         <div class="prog-card-desc" data-i18n="prog_balance_desc">Программа для поддержания формы и стабильной энергии с разнообразными блюдами.</div>
         <div class="prog-card-price">От 480 <span data-i18n="prog_per_day">леев/день</span></div>
@@ -466,10 +463,9 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-energy.png" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.png</p></div>
-        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
-      </div>
+        <img src="images/prog-energy.png" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.png</p></div></div>
       <div class="prog-card-body">
+        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
         <div class="prog-card-name">Energy Plus</div>
         <div class="prog-card-desc" data-i18n="prog_energy_desc">Питательная программа для людей с интенсивным ритмом жизни.</div>
         <div class="prog-card-price">От 540 <span data-i18n="prog_per_day">леев/день</span></div>
@@ -483,10 +479,9 @@
     </div>
     <div class="prog-card">
       <div class="prog-card-img">
-        <img src="images/prog-personal.png" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.png</p></div>
-        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
-      </div>
+        <img src="images/prog-personal.png" alt="Personal Plan" class="site-img" style="object-position:center 10%;bottom:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.png</p></div></div>
       <div class="prog-card-body">
+        <div class="prog-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
         <div class="prog-card-name">Personal Plan</div>
         <div class="prog-card-desc" data-i18n="prog_personal_desc">Индивидуальный план, созданный под личные цели и особенности организма.</div>
         <div class="prog-card-price">От 600 <span data-i18n="prog_per_day">леев/день</span></div>
@@ -642,7 +637,7 @@
   <div class="modal" id="modal">
     <div class="modal-img" id="modal-img">
       <span id="modal-emoji"></span>
-      <div class="modal-badge" id="modal-badge">Минимум 2 дн.</div>
+      <div class="modal-badge" id="modal-badge">Минимум 3 дня</div>
       <button class="modal-close" onclick="closeModalDirect()">✕</button>
     </div>
     <div class="modal-body">

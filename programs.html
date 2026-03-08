@@ -183,7 +183,7 @@
 
   :root{--green-dark:#406843;--green-mid:#4d7a50;--green-light:#6a9e6e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1e3320;--text-mid:#4a6a4c;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f0ede6;padding-top:8px}
+  body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f5f3ee;padding-top:8px}
       /* ── NAV ─────────────────────────────────────────────────── */
   .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
   nav{background:#406843;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
@@ -199,7 +199,7 @@
   .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
   .nav-phone::before{content:'📞';font-size:13px}
   .nav-phone:hover{color:#e2c47a}
-  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#1e3320!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%)!important;background-size:200% auto!important;color:#fff!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
   .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
   .lang-switcher{position:relative;margin-left:4px;user-select:none}
   .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
@@ -296,7 +296,7 @@
   .om-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
   .om-phone{display:grid;grid-template-columns:90px 1fr;gap:8px}
   .omg textarea{resize:none;min-height:80px}
-  .btn-om-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--green-dark);border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;width:100%;margin-top:6px;transition:opacity .2s,transform .15s;letter-spacing:.3px}
+  .btn-om-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#fff;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;width:100%;margin-top:6px;transition:opacity .2s,transform .15s;letter-spacing:.3px}
   .btn-om-submit:hover{opacity:.9;transform:translateY(-1px)}
 
   /* FIX: intl-tel-input overlap */
@@ -446,7 +446,7 @@
     <div class="prog-row-img">
       <img src="images/prog-reset.jpg" alt="Reset & Detox" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-reset.jpg</p></div>
-      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     </div>
     <div class="prog-row-body">
       <h3>Reset &amp; Detox</h3>
@@ -479,7 +479,7 @@
     <div class="prog-row-img">
       <img src="images/prog-slim.jpg" alt="Slim Sculpt" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-slim.jpg</p></div>
-      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     </div>
   </div>
 
@@ -487,7 +487,7 @@
     <div class="prog-row-img">
       <img src="images/prog-balance.jpg" alt="Balance Daily" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-balance.jpg</p></div>
-      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     </div>
     <div class="prog-row-body">
       <h3>Balance Daily</h3>
@@ -520,7 +520,7 @@
     <div class="prog-row-img">
       <img src="images/prog-energy.jpg" alt="Energy Plus" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-energy.jpg</p></div>
-      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     </div>
   </div>
 
@@ -528,7 +528,7 @@
     <div class="prog-row-img">
       <img src="images/prog-personal.jpg" alt="Personal Plan" class="site-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="img-placeholder" style="display:none"><span>📷</span><p>prog-personal.jpg</p></div>
-      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 2 дн.</div>
+      <div class="prog-min-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     </div>
     <div class="prog-row-body">
       <h3>Personal Plan</h3>
