@@ -59,7 +59,7 @@
   .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
   .nav-phone::before{content:'📞';font-size:13px}
   .nav-phone:hover{color:#e2c47a}
-  .btn-contact{background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%)!important;background-size:200% auto!important;color:#fff!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact{background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%)!important;background-size:200% auto!important;color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,0.25)!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.45)!important}
   .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
 
   /* LANG SWITCHER */
@@ -259,8 +259,8 @@
   footer{background:var(--green-dark);padding:40px}
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
   .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .footer-logo-icon{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
-  .footer-logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:2px}
+  .footer-logo-icon{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark)}
+  .footer-logo-text{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:2px}
   .footer-nav{display:flex;gap:28px}
   .footer-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:color .2s}
   .footer-nav a:hover{color:var(--gold-light)}
@@ -302,15 +302,16 @@
   /* GOLDEN BUTTONS */
   .btn-primary, .btn-order, .btn-cta-submit, .btn-om-submit,
   .btn-fill, .btn-sm, .btn-contact, .btn-modal-order {
-    background: linear-gradient(135deg, #c9a84c 0%, #e2c47a 50%, #c9a84c 100%) !important;
+    background: linear-gradient(135deg, #d4a830 0%, #f0d060 50%, #d4a830 100%) !important;
     background-size: 200% auto !important;
-    color: #2d4a2d !important;
+    color: #fff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25) !important;
     border: none !important;
     border-radius: 30px !important;
     font-weight: 700 !important;
     letter-spacing: 0.3px;
     transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
-    box-shadow: 0 4px 15px rgba(201,168,76,0.35) !important;
+    box-shadow: 0 4px 15px rgba(201,168,76,0.45) !important;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -319,8 +320,13 @@
   .btn-fill:hover, .btn-sm:hover, .btn-contact:hover, .btn-modal-order:hover {
     background-position: right center !important;
     transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 6px 22px rgba(201,168,76,0.55) !important;
-    color: #1e3320 !important;
+    box-shadow: 0 6px 22px rgba(201,168,76,0.65) !important;
+    color: #fff !important;
+  }
+  .btn-primary:active, .btn-order:active, .btn-cta-submit:active, .btn-om-submit:active,
+  .btn-fill:active, .btn-sm:active, .btn-contact:active {
+    transform: translateY(0) scale(0.99) !important;
+    box-shadow: 0 2px 8px rgba(201,168,76,0.3) !important;
   }
   .btn-outline {
     background: transparent !important;
@@ -617,8 +623,8 @@
 <footer>
   <div class="footer-inner">
     <a class="footer-logo" href="index.html">
-      <div class="footer-logo-icon">VF</div>
-      <div><div class="footer-logo-text">Savur</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
+      <div class="footer-logo-icon">S</div>
+      <div><div class="footer-logo-text">Savur</div><div style="font-size:12px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">healthy food</div></div>
     </a>
     <nav class="footer-nav">
       <a href="index.html" data-i18n="nav_home">Главная</a>
@@ -628,7 +634,7 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy" data-i18n="footer_copy">© 2026 Vitafit. Все права защищены.</span>
-    <span class="footer-dev" data-i18n="footer_dev">Разработано компанией WebStudio</span>
+    
   </div>
 </footer>
 

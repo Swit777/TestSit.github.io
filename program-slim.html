@@ -48,8 +48,8 @@
     min-height: 360px;
   }
   .detail-hero-img img, .detail-hero-img .site-img, .detail-hero-img .site-img-round {
-    width: 360px;
-    height: 360px;
+    width: 460px;
+    height: 460px;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -94,18 +94,18 @@
 
   /* Карточки других программ — круглое фото */
   .other-card-img {
-    padding: 16px 16px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: var(--off-white);
+    padding: 0;
   }
   .other-card-img-circle {
-    width: 80px; height: 80px;
-    border-radius: 50%;
+    width: 100%; height: 200px;
+    border-radius: 0;
     overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    border: none;
+    box-shadow: none;
     flex-shrink: 0;
   }
   .other-card-img-circle .site-img {
@@ -214,7 +214,7 @@
   .nav-phone{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s}
   .nav-phone::before{content:'📞';font-size:13px}
   .nav-phone:hover{color:#e2c47a}
-  .btn-contact{background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%)!important;background-size:200% auto!important;color:#fff!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4)!important}
+  .btn-contact{background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%)!important;background-size:200% auto!important;color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,0.25)!important;border:none!important;border-radius:50px!important;padding:10px 26px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Nunito',sans-serif;transition:background-position .4s,box-shadow .2s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.45)!important}
   .btn-contact:hover{background-position:right center!important;box-shadow:0 6px 20px rgba(201,168,76,.6)!important;transform:translateY(-1px)!important}
   .lang-switcher{position:relative;margin-left:4px;user-select:none}
   .lang-trigger{display:flex;align-items:center;gap:4px;background:transparent;color:rgba(255,255,255,.8);border:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.8px;transition:color .2s;border-radius:6px}
@@ -239,11 +239,11 @@
   .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
   .lang-option.active{color:var(--white);font-weight:800}
   /* HERO DETAIL */
-  .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;min-height:340px;max-width:1200px;margin:0 auto}
-  .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:360px;height:360px;min-width:360px;min-height:360px}
+  .detail-hero{background:transparent;padding:50px 60px;display:grid;grid-template-columns:460px 1fr;gap:50px;align-items:center;min-height:440px;max-width:1200px;margin:0 auto}
+  .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:460px;height:460px;min-width:460px;min-height:460px}
   .detail-hero-badge{display:inline-block;background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%);background-size:200% auto;color:#1e3320;font-size:10px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px}
   .detail-hero-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2}
-  .detail-hero-desc{color:rgba(255,255,255,.78);font-size:14px;line-height:1.7;margin-bottom:24px;max-width:520px}
+  .detail-hero-desc{color:rgba(255,255,255,.85);font-size:15px;line-height:1.75;margin-bottom:24px;max-width:540px}
   .btn-order{display:inline-block;background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%);background-size:200% auto;color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;font-size:14px;text-decoration:none;border:2px solid #d4a830;cursor:pointer;font-family:'Nunito',sans-serif;transition:background-position .4s,transform .15s;box-shadow:0 4px 14px rgba(201,168,76,.4);text-shadow:0 1px 2px rgba(0,0,0,.2)}
   .btn-order:hover{background:var(--gold-light);transform:translateY(-2px)}
 
@@ -272,36 +272,49 @@
   .gallery-item:hover{transform:scale(1.02)}
   .gallery-item.tall{grid-row:span 2}
 
-  /* REVIEWS */
+  /* REVIEWS SLIDER */
   .reviews-section{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:6px;text-align:center}
   .reviews-section .subtitle{text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:36px}
-  .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
-  .review-card{background:var(--white);border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-  .review-stars{color:var(--gold);font-size:15px;margin-bottom:10px}
-  .review-text{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+  .reviews-slider-wrap{position:relative;overflow:hidden;border-radius:16px}
+  .reviews-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+  .review-card{background:var(--white);border-radius:14px;padding:28px;box-shadow:0 4px 16px rgba(0,0,0,.07);flex:0 0 calc(50% - 8px);margin-right:16px;box-sizing:border-box}
+  .review-stars{font-size:16px;margin-bottom:10px;letter-spacing:2px}
+  .review-rating{font-size:11px;color:var(--text-light);font-weight:600;margin-left:6px;vertical-align:middle}
+  .review-text{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
   .review-author{display:flex;align-items:center;gap:10px}
-  .review-avatar{width:38px;height:38px;border-radius:50%;background:var(--green-mid);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:16px}
+  .review-avatar{width:38px;height:38px;border-radius:50%;background:var(--green-mid);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:16px;flex-shrink:0}
   .review-name{font-weight:700;font-size:13px;color:var(--text-dark)}
   .review-sub{font-size:11px;color:var(--text-light)}
+  .reviews-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+  .reviews-nav-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--green-mid);background:transparent;color:var(--green-dark);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1}
+  .reviews-nav-btn:hover{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+  .reviews-nav-btn:disabled{opacity:.3;cursor:default}
+  .reviews-dots{display:flex;gap:6px}
+  .reviews-dot{width:8px;height:8px;border-radius:50%;background:rgba(64,104,67,.2);border:none;cursor:pointer;transition:all .2s;padding:0}
+  .reviews-dot.active{background:var(--green-mid);transform:scale(1.3)}
+  @media(max-width:900px){
+    .review-card{flex:0 0 100%;margin-right:16px}
+    .reviews-section{padding:40px 20px}
+  }
 
   /* OTHER PROGRAMS */
   .other-section{background:transparent;padding:60px 60px;max-width:1200px;margin:0 auto}
   .other-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);margin-bottom:28px;text-align:center}
   .other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto}
-  .other-card{background:var(--off-white);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block}
+  .other-card{background:var(--off-white);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block}
   .other-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
-  .other-card-img{height:100px;background:linear-gradient(135deg,#4d7a50,#345536);display:flex;align-items:center;justify-content:center;font-size:32px}
-  .other-card-body{padding:12px}
-  .other-card-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px}
-  .other-card-price{font-size:12px;color:var(--green-dark);font-weight:600}
+  .other-card-img{height:200px;background:linear-gradient(135deg,#4d7a50,#345536);display:flex;align-items:center;justify-content:center;font-size:32px}
+  .other-card-body{padding:14px 14px 16px}
+  .other-card-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:5px}
+  .other-card-price{font-size:13px;color:var(--green-dark);font-weight:600}
 
   /* FOOTER */
   footer{background:var(--green-dark);padding:40px}
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
   .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .footer-logo-icon{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green-dark)}
-  .footer-logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:2px}
+  .footer-logo-icon{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark)}
+  .footer-logo-text{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:2px}
   .footer-nav{display:flex;gap:28px}
   .footer-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:color .2s}
   .footer-nav a:hover{color:var(--gold-light)}
@@ -311,7 +324,7 @@
   @media(max-width:900px){
     nav{padding:0 16px}.nav-links{display:none}
     .detail-hero{grid-template-columns:1fr;padding:40px 20px;text-align:center}
-    .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:360px;height:360px;min-width:360px;min-height:360px}
+    .detail-hero-img{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:460px;height:460px;min-width:460px;min-height:460px}
     .benefits-inner{grid-template-columns:1fr}.benefit-side-img{display:none}
     .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gallery-item.tall{grid-row:span 1}
     .reviews-grid{grid-template-columns:1fr}
@@ -354,13 +367,14 @@
   .btn-fill, .btn-sm, .btn-contact, .btn-modal-order {
     background: linear-gradient(135deg, #d4a830 0%, #f0d060 50%, #d4a830 100%) !important;
     background-size: 200% auto !important;
-    color: #406843 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25) !important;
     border: none !important;
     border-radius: 30px !important;
     font-weight: 700 !important;
     letter-spacing: 0.3px;
     transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
-    box-shadow: 0 4px 15px rgba(201,168,76,0.35) !important;
+    box-shadow: 0 4px 15px rgba(201,168,76,0.45) !important;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -369,15 +383,14 @@
   .btn-fill:hover, .btn-sm:hover, .btn-contact:hover, .btn-modal-order:hover {
     background-position: right center !important;
     transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 6px 22px rgba(201,168,76,0.55) !important;
-    color: #1e3320 !important;
+    box-shadow: 0 6px 22px rgba(201,168,76,0.65) !important;
+    color: #fff !important;
   }
   .btn-primary:active, .btn-order:active, .btn-cta-submit:active, .btn-om-submit:active,
   .btn-fill:active, .btn-sm:active, .btn-contact:active {
     transform: translateY(0) scale(0.99) !important;
     box-shadow: 0 2px 8px rgba(201,168,76,0.3) !important;
   }
-  /* Outline buttons stay as-is */
   .btn-outline {
     background: transparent !important;
     color: #fff !important;
@@ -472,7 +485,7 @@
   <div>
     <div class="detail-hero-badge" data-i18n="prog_badge_min">Минимум 3 дня</div>
     <h1 class="detail-hero-title">Slim Sculpt</h1>
-    <p class="detail-hero-desc" data-i18n="slim_hero_desc">Slim Sculpt поддерживает здоровое похудение и моделирование фигуры без голода. Сбалансированные блюда содержат нежирный белок, чистые углеводы и клетчатку для постепенного снижения жира. Программа стабилизирует уровень сахара и снижает аппетит, помогая иметь более плоский живот и постоянную энергию. Идеально для тех, кто хочет видимых и устойчивых результатов, сохраняя мышечную массу. Подходит как новичкам, так и тем, кто пробовал диеты без успеха.</p>
+    <p class="detail-hero-desc" data-i18n="slim_hero_desc">Slim Sculpt поддерживает здоровое похудение и моделирование фигуры без голода. Сбалансированные блюда содержат нежирный белок, чистые углеводы и клетчатку для постепенного сжигания жира. Программа стабилизирует уровень сахара и снижает аппетит, помогая иметь более плоский живот и постоянную энергию. Идеально для тех, кто хочет видимых и устойчивых результатов, сохраняя мышечную массу. Подходит как новичкам, так и тем, кто пробовал диеты без успеха.</p>
     <a class="btn-order" href="#" onclick="openOrderModal('Slim Sculpt');return false;" data-i18n="btn_order">Заказать программу</a>
   </div>
 </section>
@@ -537,25 +550,126 @@
 <section class="reviews-section">
   <h2 data-i18n="reviews_title">Отзывы</h2>
   <p class="subtitle" data-i18n="reviews_sub">Узнай, как наши программы помогли людям изменить свой образ жизни.</p>
-  <div class="reviews-grid">
+  <div class="reviews-slider-wrap">
+    <div class="reviews-track" id="reviewsTrack">
     <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="slim_rev1_text">За три недели программы я похудела на 4 кг и при этом ни разу не голодала! Блюда очень вкусные и сытные. Теперь продолжу ещё месяц.</p>
+      <div class="review-stars" style="color:#c9a84c">★★★★★<span class="review-rating">5/5</span></div>
+      <p class="review-text">За три недели я похудела на 4 кг и ни разу не голодала! Блюда очень вкусные и сытные. Уже заказала ещё месяц.</p>
       <div class="review-author">
         <div class="review-avatar">👤</div>
-        <div><div class="review-name" data-i18n="slim_rev1_name">Мария Л.</div><div class="review-sub" data-i18n="slim_rev1_sub">Slim Sculpt, 3 недели</div></div>
+        <div><div class="review-name">Мария Л.</div><div class="review-sub">Slim Sculpt, 3 недели</div></div>
       </div>
     </div>
     <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="slim_rev2_text">Лучшая программа для похудения, которую я пробовал. Без голода, без срывов. Потерял 6 кг за месяц и чувствую себя отлично!</p>
+      <div class="review-stars" style="color:#c9a84c">★★★★★<span class="review-rating">5/5</span></div>
+      <p class="review-text">Лучшая программа для похудения. Без голода, без срывов. Потерял 6 кг за месяц и чувствую себя отлично!</p>
       <div class="review-author">
         <div class="review-avatar">👤</div>
-        <div><div class="review-name" data-i18n="slim_rev2_name">Игорь В.</div><div class="review-sub" data-i18n="slim_rev2_sub">Slim Sculpt, 4 недели</div></div>
+        <div><div class="review-name">Игорь В.</div><div class="review-sub">Slim Sculpt, 4 недели</div></div>
       </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#d4a830">★★★★☆<span class="review-rating">4/5</span></div>
+      <p class="review-text">Очень понравилось разнообразие блюд. Минус один — иногда хотелось чего-то сладкого, но результат того стоит. −3 кг за 2 недели.</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Анна К.</div><div class="review-sub">Slim Sculpt, 2 недели</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#c9a84c">★★★★★<span class="review-rating">5/5</span></div>
+      <p class="review-text">Никогда не думала, что здоровое питание может быть таким вкусным. Живот стал заметно плоским уже через 10 дней!</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Елена С.</div><div class="review-sub">Slim Sculpt, 10 дней</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#d4a830">★★★★☆<span class="review-rating">4/5</span></div>
+      <p class="review-text">Хороший результат — минус 5 кг за месяц. Доставка всегда вовремя, порции сытные. Буду продолжать.</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Дмитрий Р.</div><div class="review-sub">Slim Sculpt, 1 месяц</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#c9a84c">★★★★★<span class="review-rating">5/5</span></div>
+      <p class="review-text">Рекомендую всем! Программа помогла выработать правильные пищевые привычки. Чувствую лёгкость и энергию каждый день.</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Виктория М.</div><div class="review-sub">Slim Sculpt, 3 недели</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#aaa">★★★☆☆<span class="review-rating">3/5</span></div>
+      <p class="review-text">В целом хорошо, но хотелось бы больше вариантов на ужин. Результат есть — похудела на 2 кг за 2 недели.</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Ольга Т.</div><div class="review-sub">Slim Sculpt, 2 недели</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" style="color:#c9a84c">★★★★★<span class="review-rating">5/5</span></div>
+      <p class="review-text">Отличный сервис! Очень удобно — всё готово, только разогрей. За месяц потерял 7 кг и стал чувствовать себя намного лучше.</p>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="review-name">Алексей Н.</div><div class="review-sub">Slim Sculpt, 1 месяц</div></div>
+      </div>
+    </div>
     </div>
   </div>
-</section></div>
+  <div class="reviews-nav">
+    <button class="reviews-nav-btn" id="revPrev">&#8249;</button>
+    <div class="reviews-dots" id="reviewsDots"><button class="reviews-dot active" data-idx="0"></button><button class="reviews-dot" data-idx="2"></button><button class="reviews-dot" data-idx="4"></button><button class="reviews-dot" data-idx="6"></button></div>
+    <button class="reviews-nav-btn" id="revNext">&#8250;</button>
+  </div>
+</section>
+<script>
+(function(){
+  var track = document.getElementById('reviewsTrack');
+  if (!track) return;
+  var cards = track.querySelectorAll('.review-card');
+  var dotsEl = document.getElementById('reviewsDots');
+  var dots = dotsEl ? dotsEl.querySelectorAll('.reviews-dot') : [];
+  var btnPrev = document.getElementById('revPrev');
+  var btnNext = document.getElementById('revNext');
+  var perView = window.innerWidth <= 900 ? 1 : 2;
+  var current = 0;
+  var total = Math.ceil(cards.length / perView);
+
+  function getCardW() {
+    return cards[0] ? cards[0].offsetWidth + 16 : 0;
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, total - 1));
+    track.style.transform = 'translateX(-' + (current * perView * getCardW()) + 'px)';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === total - 1;
+  }
+
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });
+  btnPrev.addEventListener('click', function() { goTo(current - 1); });
+  btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+  // Touch swipe
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  }, {passive:true});
+
+  window.addEventListener('resize', function() {
+    perView = window.innerWidth <= 900 ? 1 : 2;
+    total = Math.ceil(cards.length / perView);
+    goTo(0);
+  }, {passive:true});
+
+  goTo(0);
+})();
+</script></div>
 
 <div class="sc sc-white">
 <!-- OTHER PROGRAMS -->
@@ -604,8 +718,8 @@
 <footer>
   <div class="footer-inner">
     <a class="footer-logo" href="index.html">
-      <div class="footer-logo-icon">VF</div>
-      <div><div class="footer-logo-text">Savur</div><div style="font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">nutrition</div></div>
+      <div class="footer-logo-icon">S</div>
+      <div><div class="footer-logo-text">Savur</div><div style="font-size:12px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;">healthy food</div></div>
     </a>
     <nav class="footer-nav">
       <a href="index.html" data-i18n="nav_home">Главная</a>
@@ -615,7 +729,7 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy" data-i18n="footer_copy">© 2026 Vitafit. Все права защищены.</span>
-    <span class="footer-dev" data-i18n="footer_dev">Разработано компанией WebStudio</span>
+    
   </div>
 </footer>
 
