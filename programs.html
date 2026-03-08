@@ -224,9 +224,20 @@
   .lang-option:hover{background:rgba(255,255,255,.08);color:var(--white)}
   .lang-option.active{color:var(--white);font-weight:800}
   /* PAGE HERO */
-  .page-hero{background:transparent;padding:60px 40px;text-align:center}
-  .page-hero h1{font-family:'Playfair Display',serif;font-size:38px;color:var(--white);font-weight:700;margin-bottom:14px}
-  .page-hero p{color:rgba(255,255,255,.75);font-size:16px;max-width:500px;margin:0 auto}
+  .page-hero{background:transparent;padding:48px 48px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;min-height:650px}
+  .page-hero-img{border-radius:18px;overflow:hidden;height:580px;flex-shrink:0;background:linear-gradient(135deg,#4d7a50,#2e4d30);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+  .page-hero-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:absolute;top:0;left:0}
+  .page-hero-img-label{font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.5px;text-align:center;padding:0 20px;position:relative;z-index:1}
+  .page-hero-img-icon{font-size:36px;opacity:.45;position:relative;z-index:1}
+  .page-hero-text h1{font-family:'Playfair Display',serif;font-size:54px;color:var(--white);font-weight:700;margin-bottom:18px;line-height:1.15}
+  .page-hero-text p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.65}
+  .page-hero-label{text-align:center;padding:34px 0 6px}
+  .page-hero-label h3{font-family:'Playfair Display',serif;font-size:54px;color:var(--text-dark);font-weight:700}
+  @media(max-width:900px){
+    .page-hero{grid-template-columns:1fr;padding:28px 20px;gap:24px;min-height:auto}
+    .page-hero-img{height:260px}
+    .page-hero-text h1{font-size:30px}
+  }
   /* PROGRAMS LIST */
   .section-label{text-align:center;padding:32px 0 4px}
   .section-label h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--text-dark)}
@@ -240,15 +251,15 @@
   .prog-row.reverse .prog-min-badge{left:auto;right:14px}
   .prog-row-body{padding:32px}
   .prog-row-body h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px}
-  .prog-row-body p{color:rgba(255,255,255,.85);line-height:1.7;font-size:14px;margin-bottom:16px}
+  .prog-row-body p{color:rgba(255,255,255,.88);line-height:1.75;font-size:16px;margin-bottom:16px}
   .prog-features{list-style:none;margin-bottom:20px}
   .prog-features li{font-size:13px;color:rgba(255,255,255,.9);padding:4px 0;display:flex;align-items:center;gap:8px}
   .prog-features li::before{content:'✓';color:var(--gold);font-weight:700;font-size:14px}
   .prog-row-actions{display:flex;gap:10px}
-  .btn-outline{display:inline-block;background:transparent;color:var(--green-dark);border:2px solid var(--green-mid);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif;transition:all .2s}
-  .btn-outline:hover{background:var(--green-dark);color:var(--white);border-color:var(--green-dark)}
-  .btn-fill{display:inline-block;background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%);background-size:200% auto;color:#1e3320;border:2px solid var(--gold);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif;transition:all .2s}
-  .btn-fill:hover{background:var(--gold-light);border-color:var(--gold-light)}
+  .btn-outline{display:inline-block;background:transparent;color:#fff;border:2px solid var(--gold);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif;transition:all .25s}
+  .btn-outline:hover{background:linear-gradient(135deg,#c9a84c 0%,#e2c47a 50%,#c9a84c 100%);color:#1e3320;border-color:var(--gold);box-shadow:0 4px 14px rgba(201,168,76,.5);transform:translateY(-1px)}
+  .btn-fill{display:inline-block;background:linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%);background-size:200% auto;color:#fff;border:2px solid #d4a830;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif;transition:all .25s;box-shadow:0 4px 14px rgba(201,168,76,.4);text-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .btn-fill:hover{background-position:right center;border-color:#f0d060;box-shadow:0 6px 20px rgba(201,168,76,.65);transform:translateY(-2px)}
   /* FOOTER */
   footer{background:var(--green-dark);padding:40px}
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -300,7 +311,7 @@
   /* GOLDEN BUTTONS */
   .btn-primary, .btn-order, .btn-cta-submit, .btn-om-submit,
   .btn-fill, .btn-sm, .btn-contact, .btn-modal-order {
-    background: linear-gradient(135deg, #c9a84c 0%, #e2c47a 50%, #c9a84c 100%) !important;
+    background: linear-gradient(135deg, #d4a830 0%, #f0d060 50%, #d4a830 100%) !important;
     background-size: 200% auto !important;
     color: #406843 !important;
     border: none !important;
@@ -328,17 +339,18 @@
   /* Outline buttons stay as-is */
   .btn-outline {
     background: transparent !important;
-    color: var(--green-dark) !important;
-    border: 2px solid var(--green-mid) !important;
+    color: #fff !important;
+    border: 2px solid var(--gold) !important;
     border-radius: 30px !important;
     box-shadow: none !important;
-    transition: all 0.2s !important;
+    transition: all 0.25s !important;
   }
   .btn-outline:hover {
-    background: var(--green-dark) !important;
-    color: white !important;
+    background: linear-gradient(135deg,#d4a830 0%,#f0d060 50%,#d4a830 100%) !important;
+    color: #1e3320 !important;
+    border-color: #f0d060 !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(45,74,45,0.25) !important;
+    box-shadow: 0 4px 16px rgba(201,168,76,.5) !important;
   }
 
 
@@ -414,14 +426,20 @@
   </div>
 </nav></div>
 
-<div class="sc sc-dark"><div class="page-hero" style="border-radius:0">
-  <h1 data-i18n="prog_page_title">Выбери подходящую программу для себя</h1>
-  <p data-i18n="prog_page_sub">Продолжительность и интенсивность программы зависят от твоей цели: похудения, баланса или повышения физической формы.</p>
+<div class="sc sc-dark"><div class="page-hero">
+  <div class="page-hero-img">
+    <span class="page-hero-img-icon">📷</span>
+    <span class="page-hero-img-label">images/hero-programs.jpg</span>
+    <img src="images/hero-programs.jpg" alt="Программы питания" onload="this.previousElementSibling.style.display='none';this.previousElementSibling.previousElementSibling.style.display='none'">
+  </div>
+  <div class="page-hero-text">
+    <h1 data-i18n="prog_page_title">Выбери подходящую программу для себя</h1>
+    <p data-i18n="prog_page_sub">Продолжительность и интенсивность программы зависят от твоей цели: похудения, баланса или повышения физической формы.</p>
+  </div>
 </div></div>
 
 <div class="sc" style="background:transparent;box-shadow:none">
-<div class="section-label"><h3 data-i18n="prog_page_label">Программы</h3></div>
-
+<div class="page-hero-label"><h3 data-i18n="prog_page_label">Программы</h3></div>
 <div class="programs-list">
 
   <div class="prog-row">
