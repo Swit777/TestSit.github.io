@@ -642,11 +642,11 @@
   }
 
   function goTo(idx) {
-    current = Math.max(0, Math.min(idx, total - 1));
+    current = (idx % total + total) % total;
     track.style.transform = 'translateX(-' + (current * perView * getCardW()) + 'px)';
     dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-    btnPrev.disabled = current === 0;
-    btnNext.disabled = current === total - 1;
+    btnPrev.disabled = false;
+    btnNext.disabled = false;
   }
 
   dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });

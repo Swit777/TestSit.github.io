@@ -252,11 +252,9 @@
     var total   = cards.length;
 
     function goTo(idx) {
-      current = Math.max(0, Math.min(idx, total - 1));
+      current = (idx % total + total) % total;
       track.style.transform = 'translateX(-' + (current * 100) + '%)';
       dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-      btnPrev.classList.toggle('disabled', current === 0);
-      btnNext.classList.toggle('disabled', current === total - 1);
     }
 
     goTo(0);
@@ -300,7 +298,7 @@
       mouseDragging = false;
       track.style.transition = '';
       var dx = e.clientX - mouseStart;
-      goTo(Math.abs(dx) > 40 ? (dx < 0 ? current + 1 : current - 1) : current);
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
     });
 
     /* ── resize ── */
