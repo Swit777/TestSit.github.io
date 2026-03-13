@@ -14,6 +14,7 @@
 <title>Savur – Главная</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  .page-wrap{max-width:1400px;margin:0 auto;width:100%}
   :root{--green-dark:#406843;--green-mid:#4d7a50;--green-light:#6a9e6e;--gold:#c9a84c;--gold-light:#e2c47a;--white:#fff;--off-white:#f9f7f2;--text-dark:#1e3320;--text-mid:#4a5e4a;--text-light:#8a9e8a}
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
   body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#f5f3ee;padding-top:8px}
@@ -46,7 +47,7 @@
 
   /* ── NAV ── */
   .nav-outer{position:sticky;top:14px;z-index:100;padding:0 24px;pointer-events:none}
-  nav{background:#406843;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;max-width:1200px;margin:0 auto}
+  nav{background:#406843;height:64px;display:flex;align-items:center;justify-content:space-between;border-radius:50px;box-shadow:0 6px 28px rgba(0,0,0,.28);padding:0 32px;pointer-events:all;}
   .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
   .nav-logo-icon{display:none!important}
   .nav-logo-text{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:3px}
@@ -107,7 +108,7 @@
 
   /* PROGRAMS */
   .programs-section{background:transparent;padding:60px 48px 70px}
-  .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1260px;margin:60px auto 0}
+  .programs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:none;margin:60px auto 0}
   .prog-card{background:var(--white);border-radius:16px;overflow:visible;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.9)}
   .prog-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,.32)}
 
@@ -149,7 +150,7 @@
 
   /* HOW */
   .how-section{background:var(--green-dark);padding:70px 40px}
-  .how-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .how-inner{max-width:none;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
   .how-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
 
   /* HOW IMAGES — фиксированная высота, cover */
@@ -188,7 +189,7 @@
 
   /* BENEFITS */
   .benefits-section{background:transparent;padding:70px 40px}
-  .benefits-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .benefits-grid{max-width:none;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .benefit-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}
   .benefit-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
 
@@ -212,7 +213,7 @@
 
   /* TESTIMONIALS */
   .testimonials-section{background:transparent;padding:70px 40px}
-  .testimonials-slider{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .testimonials-slider{max-width:none;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .testimonial-card{background:var(--white);border-radius:14px;padding:28px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
   .stars{color:var(--gold);font-size:16px;margin-bottom:12px}
   .testimonial-text{font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
@@ -222,7 +223,7 @@
   .author-sub{display:none}
 
   /* CTA */
-  .cta-section{background:transparent;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;max-width:1100px;margin:60px auto;box-shadow:0 12px 40px rgba(0,0,0,.15)}
+  .cta-section{background:transparent;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;max-width:none;margin:0;box-shadow:0 12px 40px rgba(0,0,0,.15)}
   .cta-form-wrap{padding:50px 48px}
   .cta-form-wrap h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);font-weight:700;margin-bottom:10px;line-height:1.3}
   .cta-form-wrap>p{color:rgba(255,255,255,.75);font-size:14px;font-style:italic;line-height:1.6;margin-bottom:24px}
@@ -257,14 +258,14 @@
 
   /* FOOTER */
   footer{background:var(--green-dark);padding:40px}
-  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
   .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
   .footer-logo-icon{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark)}
   .footer-logo-text{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:2px}
   .footer-nav{display:flex;gap:28px}
   .footer-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:color .2s}
   .footer-nav a:hover{color:var(--gold-light)}
-  .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center}
   .footer-copy,.footer-dev{color:rgba(255,255,255,.4);font-size:12px}
 
   /* MODAL */
@@ -292,7 +293,7 @@
   .btn-modal-close:hover{border-color:var(--green-mid);color:var(--green-dark)}
 
   /* SECTION CONTAINERS */
-  .sc{margin:14px auto;border-radius:24px;overflow:hidden;max-width:900px;width:calc(100% - 320px)}
+  .sc{margin:14px auto;border-radius:24px;overflow:hidden;width:100%}
   .sc:first-of-type{margin-top:32px}
   .sc-white{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
   .sc-green{background:#406843}
@@ -368,13 +369,14 @@
     .benefits-grid{grid-template-columns:1fr}
     .testimonials-slider{grid-template-columns:1fr}
     .cta-section{grid-template-columns:1fr;margin:20px}.cta-right-img{display:none}
-    .sc{width:calc(100% - 24px)}
+    .sc{width:100%}
   }
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
 <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
+<div class="page-wrap">
 
 <div class="nav-outer"><nav>
   <a class="nav-logo" href="index.html">
@@ -740,5 +742,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDi
 <script src="lang.js"></script>
 <script src="mobile.js"></script>
 <script src="forms.js"></script>
+</div><!-- /page-wrap -->
 </body>
 </html>
