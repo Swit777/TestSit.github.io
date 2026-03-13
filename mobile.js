@@ -12,7 +12,7 @@
   var isContacts = page === 'contacts.html';
 
   /* ── получаем текущий язык ── */
-  function getLang() { return localStorage.getItem('vitafit_lang') || 'ru'; }
+  function getLang() { return localStorage.getItem('savur_lang') || 'ru'; }
 
   /* ────────────────────────────────────────────────
      1. ИНЖЕКТИРУЕМ ЛЕВЫЙ DRAWER
@@ -71,12 +71,12 @@
     drawer.querySelectorAll('.mob-lang-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var l = btn.dataset.lang;
-        localStorage.setItem('vitafit_lang', l);
+        localStorage.setItem('savur_lang', l);
         drawer.querySelectorAll('.mob-lang-btn').forEach(function(b) {
           b.classList.toggle('active', b.dataset.lang === l);
         });
         /* синхронизация с lang.js */
-        if (typeof setLanguage === 'function') { setLanguage(l); }
+        if (typeof applyLang === 'function') { applyLang(l); }
         else { location.reload(); }
       });
     });
