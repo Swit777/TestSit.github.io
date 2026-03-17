@@ -208,6 +208,25 @@ body > *:not(.mob-drawer):not(.scroll-top-btn) {
 }
 .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
 
+/* ────────────────────────────────────────────
+   INTL-TEL-INPUT — отступ для вводимых цифр
+   ──────────────────────────────────────────── */
+
+/* Поле ввода внутри intl-tel-input — сдвигаем текст правее флага и кода */
+.iti input[type="tel"],
+.iti input[type="text"],
+.phone-iti {
+  padding-left: 100px !important;
+}
+
+/* Если separateDialCode=true — флаг + код занимают ~90px,
+   добавляем ещё немного для читаемости */
+.iti--separate-dial-code input[type="tel"],
+.iti--separate-dial-code input[type="text"],
+.iti--separate-dial-code .phone-iti {
+  padding-left: 108px !important;
+}
+
 /* ════════════════════════════════════════════════
    ≤ 900px — перекрываем встроенный breakpoint
    ════════════════════════════════════════════════ */
